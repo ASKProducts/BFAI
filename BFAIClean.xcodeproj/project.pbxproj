@@ -11,6 +11,7 @@
 		576D6FEB208695C800218D93 /* Settings.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FEA208695C800218D93 /* Settings.c */; };
 		576D6FEE2086973F00218D93 /* Interpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FED2086973F00218D93 /* Interpreter.c */; };
 		576D6FF120869A3F00218D93 /* StupidInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF020869A3F00218D93 /* StupidInterpreter.c */; };
+		576D6FF72089EE7200218D93 /* FastBFInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF62089EE7200218D93 /* FastBFInterpreter.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		57352C0F2089F31B0025AF33 /* FastTest.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = FastTest.lf; sourceTree = "<group>"; };
 		576D6FDF208694FA00218D93 /* BFAIClean */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BFAIClean; sourceTree = BUILT_PRODUCTS_DIR; };
 		576D6FE2208694FA00218D93 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		576D6FE9208695C800218D93 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		576D6FF020869A3F00218D93 /* StupidInterpreter.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = StupidInterpreter.c; sourceTree = "<group>"; };
 		576D6FF22086A03600218D93 /* Stupid.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = Stupid.lf; sourceTree = "<group>"; };
 		576D6FF32086A06300218D93 /* LoadFileTemplate */ = {isa = PBXFileReference; lastKnownFileType = text; path = LoadFileTemplate; sourceTree = "<group>"; };
+		576D6FF52089EE7200218D93 /* FastBFInterpreter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastBFInterpreter.h; sourceTree = "<group>"; };
+		576D6FF62089EE7200218D93 /* FastBFInterpreter.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = FastBFInterpreter.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57352C102089F3210025AF33 /* Loadfiles */ = {
+			isa = PBXGroup;
+			children = (
+				576D6FF22086A03600218D93 /* Stupid.lf */,
+				57352C0F2089F31B0025AF33 /* FastTest.lf */,
+			);
+			name = Loadfiles;
+			sourceTree = "<group>";
+		};
 		576D6FD6208694F900218D93 = {
 			isa = PBXGroup;
 			children = (
@@ -75,7 +88,9 @@
 				576D6FED2086973F00218D93 /* Interpreter.c */,
 				576D6FEF20869A3F00218D93 /* StupidInterpreter.h */,
 				576D6FF020869A3F00218D93 /* StupidInterpreter.c */,
-				576D6FF22086A03600218D93 /* Stupid.lf */,
+				576D6FF52089EE7200218D93 /* FastBFInterpreter.h */,
+				576D6FF62089EE7200218D93 /* FastBFInterpreter.c */,
+				57352C102089F3210025AF33 /* Loadfiles */,
 				576D6FF32086A06300218D93 /* LoadFileTemplate */,
 			);
 			path = BFAIClean;
@@ -139,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				576D6FEB208695C800218D93 /* Settings.c in Sources */,
+				576D6FF72089EE7200218D93 /* FastBFInterpreter.c in Sources */,
 				576D6FF120869A3F00218D93 /* StupidInterpreter.c in Sources */,
 				576D6FEE2086973F00218D93 /* Interpreter.c in Sources */,
 				576D6FE3208694FA00218D93 /* main.c in Sources */,

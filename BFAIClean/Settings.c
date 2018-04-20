@@ -9,6 +9,7 @@
 #include "Settings.h"
 #include "Interpreter.h"
 #include "StupidInterpreter.h"
+#include "FastBFInterpreter.h"
 #include <string.h>
 
 InterpreterInitFunc initInterpreterFuncs[] = initFuncs;

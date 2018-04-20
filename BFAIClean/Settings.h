@@ -20,10 +20,10 @@ void initializeSettings(FILE *file);
 /******** INTERPRETER-SPECIFIC SETTINGS *******/
 
 //To add a new interpreter to the list, just add its init func to this list
-#define initFuncs {initStupidInterpreter}
+#define initFuncs {initStupidInterpreter, initFastBFInterpreter}
 
 //For faster results, if you know what program type you're using, you can set GENERIC_PROGRAM_PADDING to (sizeof(YOUR_PROGRAM_TYPE) - sizeof(GenericProgram)), or just hardcode smaller values
-#define GENERIC_PROGRAM_PADDING 1000
+#define GENERIC_PROGRAM_PADDING 10100
 
 
 #endif /* Settings_h */

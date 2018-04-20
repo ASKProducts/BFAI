@@ -24,12 +24,11 @@ extern Interpreter interpreter;
  */
 
 int main(int argc, const char * argv[]) {
-    FILE *file = fopen("./Stupid.lf", "rw");
+    FILE *file = fopen("./FastTest.lf", "rw");
     initializeSettings(file);
     
     Program p;
-    interpreter.process("ABCDAEAF",&p);
-    interpreter.run(&p, "ABAAAFA", 7);
+    
     
     printf("%s\n", p.generic.output);
     
