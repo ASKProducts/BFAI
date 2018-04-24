@@ -13,13 +13,16 @@
 
 #define MAX_FBF_OPS 500
 
+//The fast-bf interpreter will make use of the fact that the memory max is explicitly 256. Other interpreters will be more versatile.
+#define FBF_MEM_MAX 256
+
 typedef struct _FBFOp{
     char c;
-    int val;
+    short val;
     
     bool isBalanced;
-    int netShift;
-    int curInc;
+    short netShift;
+    short curInc;
 } FBFOp;
 
 typedef struct _FBFProgram{
@@ -28,7 +31,7 @@ typedef struct _FBFProgram{
     int opCount;
 } FBFProgram;
 
-//Stupid interpreter that computes the number of As in the input and code, adds them together, and outputs that number. If that number exceeds the interpreter's MaxAs, then it outputs maxAs.
+
 void initFastBFInterpreter(void);
 void scanFastBFInterpreter(FILE *file);
 void processFastBFInterpreter(char *code, FBFProgram *program);

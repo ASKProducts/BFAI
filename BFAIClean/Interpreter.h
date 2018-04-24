@@ -29,30 +29,32 @@ typedef void (*ProcessFunc) (char *code, Program *program);
 //A run func takes in a program and a pointer to an array of input and runs it on that input, filling in that program's output as we go. (Maybe return the number of instructions?)
 typedef void (*RunFunc) (Program *program, char *input, int inputLen);
 
-//This allows the interpreter to scan whatever data is needs from the loadfile. Scan into the global variable interpreter.
-typedef void (*ScanFunc) (FILE *file);
 
 typedef struct _Interpreter{
     char *name; //Names must be only one token
     ProcessFunc process;
     RunFunc run;
     ScanFunc scan;
+    SaveFunc save;
     
     char *validChars; //Interpreters can choose to scan this in or put it in init func
+    int numValidChars;
     bool isValid[256];
     
     int maxOutputLen;
+    int maxInsCount;
     
     //The following properties can be dedicated to individual interpreters.
     
     /* Stupid Interpreter */
     int maxAs;
+    
+    /* All Brainfuck Interpreters */
+    int tapeLength;
+    int tapeMaxVal;
 } Interpreter;
 
 
-//Init functions do all their initializations into interpreters[numInterpreters], and at the end of
-//the function must call numInterpreters++ and:
-// assert(sizeof(GenericProgram) + GENERIC_PROGRAM_PADDING < sizeof( PROGRAM TYPE ));
-typedef void (*InterpreterInitFunc) (void);
+
 
 #endif /* Interpreter_h */

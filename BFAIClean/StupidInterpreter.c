@@ -20,6 +20,7 @@ void initStupidInterpreter(){
     interpreters[numInterpreters].process = (ProcessFunc)processStupidInterpreter;
     interpreters[numInterpreters].run = (RunFunc)runStupidInterpreter;
     interpreters[numInterpreters].scan = scanStupidInterpreter;
+    interpreters[numInterpreters].save = saveStupidInterpreter;
     interpreters[numInterpreters].validChars = "ABCDE";
     numInterpreters++;
     
@@ -32,6 +33,10 @@ void initStupidInterpreter(){
  */
 void scanStupidInterpreter(FILE *file){
     fscanf(file, "Max As: %d\n", &interpreter.maxAs);
+}
+
+void saveStupidInterpreter(FILE *file){
+    fprintf(file, "Max As: %d\n", interpreter.maxAs);
 }
 
 void processStupidInterpreter(char *code, SIProgram *program){

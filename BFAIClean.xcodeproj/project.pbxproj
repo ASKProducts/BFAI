@@ -11,6 +11,9 @@
 		57352C18208D894C0025AF33 /* Algorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C17208D894C0025AF33 /* Algorithm.c */; };
 		57352C1C208DAD6D0025AF33 /* SinglePopulationAlgorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C1B208DAD6D0025AF33 /* SinglePopulationAlgorithm.c */; };
 		57352C20208EF0960025AF33 /* Breeder.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C1F208EF0960025AF33 /* Breeder.c */; };
+		57352C24208FD11C0025AF33 /* RandomCrossoverBreeder.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C23208FD11C0025AF33 /* RandomCrossoverBreeder.c */; };
+		57352C27208FD4C30025AF33 /* Mutator.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C26208FD4C30025AF33 /* Mutator.c */; };
+		57352C2B208FD7310025AF33 /* RandomReplaceMutator.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C2A208FD7310025AF33 /* RandomReplaceMutator.c */; };
 		576D6FE3208694FA00218D93 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FE2208694FA00218D93 /* main.c */; };
 		576D6FEB208695C800218D93 /* Settings.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FEA208695C800218D93 /* Settings.c */; };
 		576D6FEE2086973F00218D93 /* Interpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FED2086973F00218D93 /* Interpreter.c */; };
@@ -41,6 +44,12 @@
 		57352C1D208EEF100025AF33 /* BasicTest.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = BasicTest.lf; sourceTree = "<group>"; };
 		57352C1E208EF0960025AF33 /* Breeder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Breeder.h; sourceTree = "<group>"; };
 		57352C1F208EF0960025AF33 /* Breeder.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Breeder.c; sourceTree = "<group>"; };
+		57352C22208FD11C0025AF33 /* RandomCrossoverBreeder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomCrossoverBreeder.h; sourceTree = "<group>"; };
+		57352C23208FD11C0025AF33 /* RandomCrossoverBreeder.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = RandomCrossoverBreeder.c; sourceTree = "<group>"; };
+		57352C25208FD4C30025AF33 /* Mutator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mutator.h; sourceTree = "<group>"; };
+		57352C26208FD4C30025AF33 /* Mutator.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Mutator.c; sourceTree = "<group>"; };
+		57352C29208FD7310025AF33 /* RandomReplaceMutator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomReplaceMutator.h; sourceTree = "<group>"; };
+		57352C2A208FD7310025AF33 /* RandomReplaceMutator.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = RandomReplaceMutator.c; sourceTree = "<group>"; };
 		576D6FDF208694FA00218D93 /* BFAIClean */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BFAIClean; sourceTree = BUILT_PRODUCTS_DIR; };
 		576D6FE2208694FA00218D93 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		576D6FE9208695C800218D93 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -87,6 +96,8 @@
 				57352C17208D894C0025AF33 /* Algorithm.c */,
 				57352C1E208EF0960025AF33 /* Breeder.h */,
 				57352C1F208EF0960025AF33 /* Breeder.c */,
+				57352C25208FD4C30025AF33 /* Mutator.h */,
+				57352C26208FD4C30025AF33 /* Mutator.c */,
 			);
 			name = "Generic Structures";
 			sourceTree = "<group>";
@@ -109,6 +120,24 @@
 				57352C1B208DAD6D0025AF33 /* SinglePopulationAlgorithm.c */,
 			);
 			name = "Genetic Algorithms";
+			sourceTree = "<group>";
+		};
+		57352C21208FD02B0025AF33 /* Breeders */ = {
+			isa = PBXGroup;
+			children = (
+				57352C22208FD11C0025AF33 /* RandomCrossoverBreeder.h */,
+				57352C23208FD11C0025AF33 /* RandomCrossoverBreeder.c */,
+			);
+			name = Breeders;
+			sourceTree = "<group>";
+		};
+		57352C28208FD6520025AF33 /* Mutators */ = {
+			isa = PBXGroup;
+			children = (
+				57352C29208FD7310025AF33 /* RandomReplaceMutator.h */,
+				57352C2A208FD7310025AF33 /* RandomReplaceMutator.c */,
+			);
+			name = Mutators;
 			sourceTree = "<group>";
 		};
 		576D6FD6208694F900218D93 = {
@@ -136,6 +165,8 @@
 				57352C11208ABB330025AF33 /* Generic Structures */,
 				57352C12208ABB5B0025AF33 /* Interpreters */,
 				57352C19208DAC810025AF33 /* Genetic Algorithms */,
+				57352C21208FD02B0025AF33 /* Breeders */,
+				57352C28208FD6520025AF33 /* Mutators */,
 				57352C102089F3210025AF33 /* Loadfiles */,
 				576D6FF32086A06300218D93 /* LoadFileTemplate */,
 			);
@@ -199,10 +230,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57352C2B208FD7310025AF33 /* RandomReplaceMutator.c in Sources */,
 				57352C20208EF0960025AF33 /* Breeder.c in Sources */,
+				57352C24208FD11C0025AF33 /* RandomCrossoverBreeder.c in Sources */,
 				57352C1C208DAD6D0025AF33 /* SinglePopulationAlgorithm.c in Sources */,
 				576D6FEB208695C800218D93 /* Settings.c in Sources */,
 				576D6FF72089EE7200218D93 /* FastBFInterpreter.c in Sources */,
+				57352C27208FD4C30025AF33 /* Mutator.c in Sources */,
 				576D6FF120869A3F00218D93 /* StupidInterpreter.c in Sources */,
 				57352C15208D82B00025AF33 /* Genetics.c in Sources */,
 				576D6FEE2086973F00218D93 /* Interpreter.c in Sources */,

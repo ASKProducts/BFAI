@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "Interpreter.h"
 
+/* Basic overall strategy that uses one single population and advances it across generations */
+
 void initSinglePopulation(void);
 void runSinglePopulation(FILE *file);
 void scanSinglePopulation(FILE *file);

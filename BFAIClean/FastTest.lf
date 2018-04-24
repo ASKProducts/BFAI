@@ -1,1 +1,4 @@
 Interpreter: FastBF
+Tape Length: 100
+Allow Input: y
+Max Instruction Count: 1000
