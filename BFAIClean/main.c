@@ -10,6 +10,8 @@
 #include "Settings.h"
 #include "Interpreter.h"
 #include "StupidInterpreter.h"
+#include "FastBFInterpreter.h"
+#include "Algorithm.h"
 
 extern Interpreter interpreter;
 
@@ -17,9 +19,11 @@ extern Interpreter interpreter;
 /*
  Key components of genetic algorithm:
  
+ interpreter
  breeding method
  mutation method
  breeding selection method
+ fitness function
  overarching strategy
  */
 
@@ -28,7 +32,8 @@ int main(int argc, const char * argv[]) {
     initializeSettings(file);
     
     Program p;
-    
+    interpreter.process(",[.,]", &p);
+    interpreter.run(&p, "Hello World!", 12);
     
     printf("%s\n", p.generic.output);
     

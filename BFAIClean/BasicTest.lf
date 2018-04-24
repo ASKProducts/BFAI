@@ -1,0 +1,7 @@
+Interpreter: FastBFInterpreter
+Tape Length: 100
+Allow Input: n
+Max Instruction Count: 300
+Algorithm: SinglePopulation
+Genome Length: 300
+Population Size: 100
