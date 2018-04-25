@@ -8,3 +8,5 @@ Population Size: 100
 Breeder: RandomCrossover
 Mutator: RandomReplace
 Mutation Rate: 10
+Breeding Selector: BreedTop
+Elite Percentage: 20

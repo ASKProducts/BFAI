@@ -9,6 +9,7 @@
 #include "SinglePopulationAlgorithm.h"
 #include "Algorithm.h"
 #include "Genetics.h"
+#include <assert.h>
 
 extern GeneticAlgorithm algorithms[];
 extern GeneticAlgorithm algorithm;
@@ -25,7 +26,9 @@ void initSinglePopulation(void){
 
 void scanSinglePopulation(FILE *file){
     fscanf(file, "Genome Length: %d\n", &algorithm.genomeLength);
+    assert(algorithm.genomeLength < MAX_DNA_LENGTH);
     fscanf(file, "Population Size: %d\n", &algorithm.populationSize);
+    assert(algorithm.genomeLength < MAX_POPULATION_SIZE);
 }
 void saveSinglePopulation(FILE *file){
     fprintf(file, "Genome Length: %d\n", algorithm.genomeLength);

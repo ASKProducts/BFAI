@@ -23,10 +23,14 @@ void processGenome(Genome *g);
 
 //Populations will be allocated on the stack, and since population size is read in from the loadfile, we will just keep a pointer to the first element of the population, and initializing a population will consist of initializing its data on the stack and then linking a pointer.
 typedef struct _Population{
-    Genome *pop;
+    Genome *genomes;
+    //to avoid the in place sorting of tons of Genome structs (each very large), we just keep an array of pointers to elements and sort that array accordingly (initialize the array to have each pointer point to the corresponding genome then qsort
+    Genome *sorted[MAX_POPULATION_SIZE];
+    int bestFitness; //-1 if has not been calculated yet
     int ID;
     int generation;
 } Population;
+
 
 
 

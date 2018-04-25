@@ -16,6 +16,8 @@
 #include "Algorithm.h"
 #include "Breeder.h"
 #include "RandomReplaceMutator.h"
+#include "BreedingSelector.h"
+#include "BreedTop.h"
 #include <string.h>
 
 InitFunc initInterpreterFuncs[] = interpreterInits;
@@ -38,6 +40,11 @@ Mutator mutators[30];
 int numMutators = 0;
 Mutator mutator;
 
+InitFunc initSelectorFuncs[] = selectorInits;
+BreedingSelector selectors[30];
+int numSelectors = 0;
+BreedingSelector selector;
+
 
 
 
@@ -47,8 +54,7 @@ inline void prepareInterpreter(FILE *file);
 inline void prepareAlgorithm(FILE *file);
 inline void prepareBreeder(FILE *file);
 inline void prepareMutator(FILE *file);
-
-
+inline void prepareSelector(FILE *file);
 
 void initializeSettings(FILE *file){
     if(file == NULL) file = stdin;
@@ -118,6 +124,22 @@ void initializeSettings(FILE *file){
     }
     
     
+    /****** SELECTORS *****/
+    int numSelectorInits = sizeof(initSelectorFuncs) / sizeof(InitFunc);
+    for (int i = 0; i < numSelectorInits; i++) {
+        initSelectorFuncs[i]();
+    }
+    char selectorName[100];
+    fscanf(file, "Breeding Selector: %s\n", selectorName);
+    for (int i = 0; i < numSelectors; i++) {
+        if(strcmp(selectorName, selectors[i].name) == 0){
+            selector = selectors[i];
+            prepareSelector(file);
+            break;
+        }
+    }
+    
+    
     
 }
 
@@ -145,6 +167,10 @@ void prepareMutator(FILE *file){
     mutator.scan(file);
 }
 
+void prepareSelector(FILE *file){
+    selector.scan(file);
+}
+
 
 
 
@@ -157,6 +183,8 @@ void saveSettings(){
     fprintf(loadfile, "Breeder: %s\n", breeder.name);
     breeder.save(loadfile);
     fprintf(loadfile, "Mutator: %s\n", mutator.name);
+    mutator.save(loadfile);
+    fprintf(loadfile, "Breeding Selector: %s\n", mutator.name);
     mutator.save(loadfile);
     
 }
