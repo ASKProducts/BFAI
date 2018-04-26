@@ -26,10 +26,12 @@ typedef void (*InitFunc) (void);
 //These are the settings that need to be hardcoded into C instead of read from the loadfile
 #define PROGRAM_MAX_OUTPUT_LEN 100
 #define MAX_DNA_LENGTH 1000
-#define MAX_POPULATION_SIZE 1000
+#define MAX_POPULATION_SIZE 5000
 
 //For faster results(?), if you know what program type you're using, you can set GENERIC_PROGRAM_PADDING to (sizeof(YOUR_PROGRAM_TYPE) - sizeof(GenericProgram)), or just hardcode smaller values
 #define GENERIC_PROGRAM_PADDING 5500
+
+#define MAX_STACK_USE 4000000
 
 /******** STRUCTURE SETTINGS *******/
 
@@ -43,9 +45,11 @@ typedef void (*InitFunc) (void);
 
 #define breederInits {initRandomCrossover}
 
-#define mutatorInits {initRandomReplace}
+#define mutatorInits {initRandomReplace, initReplaceInsert}
 
 #define selectorInits {initBreedTop}
+
+#define fitnessFuncInits {initStringCmp}
 
 
 

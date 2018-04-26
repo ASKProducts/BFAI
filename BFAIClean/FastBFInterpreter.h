@@ -34,8 +34,9 @@ typedef struct _FBFProgram{
 
 void initFastBFInterpreter(void);
 void scanFastBFInterpreter(FILE *file);
+void saveFastBFInterpreter(FILE *file);
 void processFastBFInterpreter(char *code, FBFProgram *program);
-void runFastBFInterpreter(FBFProgram *program, char *input, int inputLen);
+int runFastBFInterpreter(FBFProgram *program, char *input, int inputLen);
 
 
 

@@ -17,11 +17,14 @@
 #include "Genetics.h"
 #include "Mutator.h"
 #include "Breeder.h"
+#include "FitnessFunction.h"
+#include <string.h>
 
 extern Interpreter interpreter;
 extern GeneticAlgorithm algorithm;
 extern Mutator mutator;
 extern Breeder breeder;
+extern FitnessFunction fitness;
 
 /*
  Key components of genetic algorithm:
@@ -29,15 +32,17 @@ extern Breeder breeder;
  . interpreter
  . breeding method (current convention: breeder algorithm just breeds dna, strategy processes genome -- this makes sense because mutations still need to happen)
  . mutation method
- breeding selection method
+ . breeding selection method
  fitness function
  . overarching strategy
  */
 
+char *loadfileName ="./BasicTest.lf";
+
 int main(int argc, const char * argv[]) {
     srand((int)time(NULL));
     
-    FILE *file = fopen("./BasicTest.lf", "rw");
+    FILE *file = fopen(loadfileName, "r");
     initializeSettings(file);
     
     Program p;
@@ -58,7 +63,16 @@ int main(int argc, const char * argv[]) {
     breeder.breed(&g,&g2 ,&c1);
     breeder.breed(&g,&g2, &c2);
     printf("\n%s\n\n%s\n", c1.dna, c2.dna);
-
     
+    Genome ge;
+    strcpy(ge.dna, "+.>-<..<[[,-,,[,,>++>[.,<+-,..-,,.+,>[<[+[>,+].[]+.,-]]++<-[<><<.-]<[-[->+><,]>[>+-]>[+.>.-.[+-<[-.<][][[>+,>,].][[[<<,[]<<+<+<.,>.<>][][,+]<>+++,,+.]-++[<[]-.>]]].[,-.+.].+>],><<>-,[]>.-<+.-],+]+[,[[[,<]>,,<<,,<[--++[[[,++<,..[.-+[,>>--][.,]><+<[->-]++<[[]+]->+.,-+.<>].->.><<<,..]+.[>->.]>>,<]+[.>]");
+    processGenome(&ge);
+    fitness.calculate(&ge);
+    
+    algorithm.run(file);
+    
+    saveSettings();
+
+    fclose(file);
     return 0;
 }

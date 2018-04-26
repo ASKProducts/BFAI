@@ -44,7 +44,9 @@ void initFastBFInterpreter(void){
     interpreters[numInterpreters].process = (ProcessFunc)processFastBFInterpreter;
     interpreters[numInterpreters].run = (RunFunc)runFastBFInterpreter;
     interpreters[numInterpreters].scan = scanFastBFInterpreter;
+    interpreters[numInterpreters].save = saveFastBFInterpreter;
     interpreters[numInterpreters].validChars = "+-><[].,";
+    interpreters[numInterpreters].AIChars = "+-><[].,";
     numInterpreters++;
 
     for (int i = 0; i < FBF_MEM_MAX; i++) {
@@ -62,8 +64,19 @@ void scanFastBFInterpreter(FILE *file){
         interpreter.validChars = "+-><[].,";
     else
         interpreter.validChars = "+-><[].";
+    
+    char possibleGenes[1000];
+    fscanf(file, "Possible Genes: %s\n", possibleGenes);
+    interpreter.AIChars = strdup(possibleGenes);
+    
     fscanf(file, "Max Instruction Count: %d\n", &interpreter.maxInsCount);
     
+}
+void saveFastBFInterpreter(FILE *file){
+    fprintf(file, "Tape Length: %d\n", interpreter.tapeLength);
+    fprintf(file, "Allow Input: %c\n", interpreter.isValid[','] ? 'y' : 'n');
+    fprintf(file, "Possible Genes: %s\n", interpreter.AIChars);
+    fprintf(file, "Max Instruction Count: %d\n", interpreter.maxInsCount);
 }
 
 #define advance(code) do{code++;}while(*code && !interpreter.isValid[*code])
@@ -158,6 +171,7 @@ void processFastBFInterpreter(char *code, FBFProgram *program){
                 break;
                 
             default:
+                advance(code);
                 break;
         }
     }
@@ -169,7 +183,7 @@ bigbreak:
 }
 
 
-void runFastBFInterpreter(FBFProgram *program, char *input, int inputLen){
+int runFastBFInterpreter(FBFProgram *program, char *input, int inputLen){
     
     int tapeLen = interpreter.tapeLength;
     unsigned char tape[tapeLen];
@@ -269,6 +283,7 @@ void runFastBFInterpreter(FBFProgram *program, char *input, int inputLen){
     
 superbreak:
     program->generic.output[program->generic.outputLen] = 0;
+    return insCount;
     
 }
 

@@ -15,7 +15,7 @@
 
 void initBreedTop(void);
 void breedTopPrep(Population *p);
-Parents breedTopSelect(Population *p);
+Parents breedTopSelect(Population *p, int childNum);
 void scanBreedTop(FILE *file);
 void saveBreedTop(FILE *file);
 

@@ -17,7 +17,10 @@
 #include "Breeder.h"
 #include "RandomReplaceMutator.h"
 #include "BreedingSelector.h"
+#include "StringCmpFitness.h"
+#include "ReplaceInsertMutator.h"
 #include "BreedTop.h"
+#include "FitnessFunction.h"
 #include <string.h>
 
 InitFunc initInterpreterFuncs[] = interpreterInits;
@@ -45,6 +48,11 @@ BreedingSelector selectors[30];
 int numSelectors = 0;
 BreedingSelector selector;
 
+InitFunc initFitnessFuncs[] = fitnessFuncInits;
+FitnessFunction fitnessFuncs[30];
+int numFitnessFuncs = 0;
+FitnessFunction fitness;
+
 
 
 
@@ -55,6 +63,7 @@ inline void prepareAlgorithm(FILE *file);
 inline void prepareBreeder(FILE *file);
 inline void prepareMutator(FILE *file);
 inline void prepareSelector(FILE *file);
+inline void prepareFitness(FILE *file);
 
 void initializeSettings(FILE *file){
     if(file == NULL) file = stdin;
@@ -139,8 +148,21 @@ void initializeSettings(FILE *file){
         }
     }
     
+    /****** FITNESS FUNCS *****/
     
-    
+    int numFitnessInits = sizeof(initFitnessFuncs) / sizeof(InitFunc);
+    for (int i = 0; i < numFitnessInits; i++) {
+        initFitnessFuncs[i]();
+    }
+    char fitnessName[100];
+    fscanf(file, "Fitness Function: %s\n", fitnessName);
+    for (int i = 0; i < numFitnessFuncs; i++) {
+        if(strcmp(fitnessName, fitnessFuncs[i].name) == 0){
+            fitness = fitnessFuncs[i];
+            prepareFitness(file);
+            break;
+        }
+    }
 }
 
 void prepareInterpreter(FILE *file){
@@ -148,6 +170,7 @@ void prepareInterpreter(FILE *file){
     
     char *c = interpreter.validChars;
     interpreter.numValidChars = (int)strlen(c);
+    interpreter.numAIChars = (int)strlen(interpreter.AIChars);
     memset(interpreter.isValid, 0, 256);
     while(*c) {
         interpreter.isValid[*c] = true;
@@ -171,11 +194,17 @@ void prepareSelector(FILE *file){
     selector.scan(file);
 }
 
+void prepareFitness(FILE *file){
+    fitness.scan(file);
+}
 
 
 
 
+extern char *loadfileName;
 void saveSettings(){
+    fclose(loadfile);
+    loadfile = fopen(loadfileName, "w");
     fprintf(loadfile, "Interpreter: %s\n", interpreter.name);
     interpreter.save(loadfile);
     fprintf(loadfile, "Algorithm: %s\n", algorithm.name);
@@ -184,8 +213,10 @@ void saveSettings(){
     breeder.save(loadfile);
     fprintf(loadfile, "Mutator: %s\n", mutator.name);
     mutator.save(loadfile);
-    fprintf(loadfile, "Breeding Selector: %s\n", mutator.name);
-    mutator.save(loadfile);
+    fprintf(loadfile, "Breeding Selector: %s\n", selector.name);
+    selector.save(loadfile);
+    fprintf(loadfile, "Fitness Function: %s\n", fitness.name);
+    fitness.save(loadfile);
     
 }
 

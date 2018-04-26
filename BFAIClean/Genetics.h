@@ -19,6 +19,7 @@ typedef struct _Genome{
     int fitness; //-1 if the fitness has not been calculated
 } Genome;
 
+void initializeRandomGenome(Genome *g);
 void processGenome(Genome *g);
 
 //Populations will be allocated on the stack, and since population size is read in from the loadfile, we will just keep a pointer to the first element of the population, and initializing a population will consist of initializing its data on the stack and then linking a pointer.
@@ -31,6 +32,8 @@ typedef struct _Population{
     int generation;
 } Population;
 
+void initializeRandomPopulation(Population *p);
+void sortPopulation(Population *p);
 
 
 
