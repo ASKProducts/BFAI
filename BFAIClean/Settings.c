@@ -21,6 +21,7 @@
 #include "ReplaceInsertMutator.h"
 #include "BreedTop.h"
 #include "FitnessFunction.h"
+#include "AdditionFitness.h"
 #include <string.h>
 
 InitFunc initInterpreterFuncs[] = interpreterInits;

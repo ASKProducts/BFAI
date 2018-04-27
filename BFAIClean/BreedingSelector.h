@@ -21,7 +21,7 @@ typedef struct _Parents{
 //BreedSelectPrepFunc does any necessary preprocessing (other than sorting, which the genetic algorithm is responsible for.) For example, computing a table of fitnesses for roulette selection.
 typedef void (*BreedSelectPrepFunc)(Population *p);
 
-//A BreedSelect func takes population and a child number to make and returns a pair of parents to breed. If the two parents are the same, the parent should just be copied
+//A BreedSelect func takes population and a child number to make and returns a pair of parents to breed. If parent 2 is NULL, then just copy parent 1
 typedef Parents (*BreedSelectFunc)(Population *p, int childNum);
 
 

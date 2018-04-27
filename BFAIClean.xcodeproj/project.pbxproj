@@ -24,6 +24,7 @@
 		576D6FEE2086973F00218D93 /* Interpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FED2086973F00218D93 /* Interpreter.c */; };
 		576D6FF120869A3F00218D93 /* StupidInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF020869A3F00218D93 /* StupidInterpreter.c */; };
 		576D6FF72089EE7200218D93 /* FastBFInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF62089EE7200218D93 /* FastBFInterpreter.c */; };
+		578633852092B07600FF8C07 /* AdditionFitness.c in Sources */ = {isa = PBXBuildFile; fileRef = 578633842092B07600FF8C07 /* AdditionFitness.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +79,9 @@
 		576D6FF32086A06300218D93 /* LoadFileTemplate */ = {isa = PBXFileReference; lastKnownFileType = text; path = LoadFileTemplate; sourceTree = "<group>"; };
 		576D6FF52089EE7200218D93 /* FastBFInterpreter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastBFInterpreter.h; sourceTree = "<group>"; };
 		576D6FF62089EE7200218D93 /* FastBFInterpreter.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = FastBFInterpreter.c; sourceTree = "<group>"; };
+		578633822092915100FF8C07 /* Addition.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = Addition.lf; sourceTree = "<group>"; };
+		578633832092B07600FF8C07 /* AdditionFitness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdditionFitness.h; sourceTree = "<group>"; };
+		578633842092B07600FF8C07 /* AdditionFitness.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = AdditionFitness.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 				576D6FF22086A03600218D93 /* Stupid.lf */,
 				57352C0F2089F31B0025AF33 /* FastTest.lf */,
 				57352C1D208EEF100025AF33 /* BasicTest.lf */,
+				578633822092915100FF8C07 /* Addition.lf */,
 				57352C3A2091CFB90025AF33 /* SaveTest.lf */,
 			);
 			name = Loadfiles;
@@ -177,6 +182,8 @@
 			children = (
 				57352C3720917ED00025AF33 /* StringCmpFitness.h */,
 				57352C3820917ED00025AF33 /* StringCmpFitness.c */,
+				578633832092B07600FF8C07 /* AdditionFitness.h */,
+				578633842092B07600FF8C07 /* AdditionFitness.c */,
 			);
 			name = "Fitness Functions";
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 				57352C2B208FD7310025AF33 /* RandomReplaceMutator.c in Sources */,
 				57352C20208EF0960025AF33 /* Breeder.c in Sources */,
 				57352C24208FD11C0025AF33 /* RandomCrossoverBreeder.c in Sources */,
+				578633852092B07600FF8C07 /* AdditionFitness.c in Sources */,
 				57352C1C208DAD6D0025AF33 /* SinglePopulationAlgorithm.c in Sources */,
 				576D6FEB208695C800218D93 /* Settings.c in Sources */,
 				57352C3920917ED00025AF33 /* StringCmpFitness.c in Sources */,

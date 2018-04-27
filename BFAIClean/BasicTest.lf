@@ -1,11 +1,11 @@
 Interpreter: FastBF
 Tape Length: 100
 Allow Input: n
-Possible Genes: +-._
+Possible Genes: +-<>[]._
 Max Instruction Count: 300
 Algorithm: SinglePopulation
 Genome Length: 300
-Population Size: 100
+Population Size: 1000
 Breeder: RandomCrossover
 Mutator: ReplaceInsert
 Mutation Rate: 30
@@ -13,6 +13,6 @@ Breeding Selector: BreedTop
 Elite Percentage: 20
 Copy Elite: y
 Fitness Function: StringCompare
-Target String: hello world
+Target String: Hello World!
 Build Up String: y
 Length Reward: 100

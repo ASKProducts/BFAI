@@ -37,7 +37,7 @@ extern FitnessFunction fitness;
  . overarching strategy
  */
 
-char *loadfileName ="./BasicTest.lf";
+char *loadfileName ="./Addition.lf";
 
 int main(int argc, const char * argv[]) {
     srand((int)time(NULL));
@@ -64,9 +64,15 @@ int main(int argc, const char * argv[]) {
     breeder.breed(&g,&g2, &c2);
     printf("\n%s\n\n%s\n", c1.dna, c2.dna);
     
+    
     Genome ge;
-    strcpy(ge.dna, "+.>-<..<[[,-,,[,,>++>[.,<+-,..-,,.+,>[<[+[>,+].[]+.,-]]++<-[<><<.-]<[-[->+><,]>[>+-]>[+.>.-.[+-<[-.<][][[>+,>,].][[[<<,[]<<+<+<.,>.<>][][,+]<>+++,,+.]-++[<[]-.>]]].[,-.+.].+>],><<>-,[]>.-<+.-],+]+[,[[[,<]>,,<<,,<[--++[[[,++<,..[.-+[,>>--][.,]><+<[->-]++<[[]+]->+.,-+.<>].->.><<<,..]+.[>->.]>>,<]+[.>]");
+    strcpy(ge.dna, ",[--[+[--[,++++..<-],+++.>.-],+.],++.],.");
     processGenome(&ge);
+    
+    char input[] = {3,4};
+    interpreter.run(&ge.program, input, 2);
+    printf("%d\n", ge.program.generic.output[0]);
+    
     fitness.calculate(&ge);
     
     algorithm.run(file);

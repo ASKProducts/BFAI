@@ -80,20 +80,17 @@ void runSinglePopulation(FILE *file){
         }
         
         p.bestFitness = p.sorted[0]->fitness;
-        
-        
-        
+
         if(gen % 1000 == 0){
             printf("\n");
             printf("Generation %d Check in:\n", gen);
             printPopulationStatus(&p);
         }
         
-        
         selector.prep(&p);
         for (int i = 0; i < popSize; i++) {
             Parents par = selector.select(&p, i);
-            if(par.p1 != par.p2){
+            if(par.p2 != NULL){
                 breeder.breed(par.p1, par.p2, &nextGenomes[i]);
                 mutator.mutate(&nextGenomes[i]);
                 processGenome(&nextGenomes[i]);

@@ -1,0 +1,15 @@
+Interpreter: FastBF
+Tape Length: 100
+Allow Input: y
+Possible Genes: +-<>[].,_
+Max Instruction Count: 100
+Algorithm: SinglePopulation
+Genome Length: 100
+Population Size: 100
+Breeder: RandomCrossover
+Mutator: ReplaceInsert
+Mutation Rate: 30
+Breeding Selector: BreedTop
+Elite Percentage: 20
+Copy Elite: y
+Fitness Function: Addition

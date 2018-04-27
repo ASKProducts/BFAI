@@ -49,7 +49,7 @@ typedef void (*InitFunc) (void);
 
 #define selectorInits {initBreedTop}
 
-#define fitnessFuncInits {initStringCmp}
+#define fitnessFuncInits {initStringCmp, initAdditionFitness}
 
 
 

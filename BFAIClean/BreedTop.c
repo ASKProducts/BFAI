@@ -35,7 +35,7 @@ void breedTopPrep(Population *p){
 Parents breedTopSelect(Population *p, int childNum){
     int top = selector.elitePercentage * algorithm.populationSize / 100;
     if(selector.copyElite && childNum < top){
-        return (Parents){.p1 = p->sorted[childNum], .p2 = p->sorted[childNum]};
+        return (Parents){.p1 = p->sorted[childNum], .p2 = NULL};
     }
     int r1 = rand() % top;
     int r2 = rand() % algorithm.populationSize;
