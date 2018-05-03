@@ -22,6 +22,8 @@ typedef struct _Breeder{
     
     BreedFunc breed;
     
+    /* segment breeder */
+    int segmentSize;
 }Breeder;
 
 #endif /* Breeder_h */

@@ -1,15 +1,16 @@
-Interpreter: FastBF
+Interpreter: Oyster
+Number of Lines: 10
+Line Length: 30
+Continue Lines: y
 Tape Length: 100
-Allow Input: n
-Possible Genes: +-<>[]._
 Max Instruction Count: 400
 Algorithm: SinglePopulation
 Genome Length: 300
 Population Size: 1000
 Breeder: SegmentBreeder
-Segment Size: 20
-Mutator: ReplaceInsert
-Mutation Rate: 100
+Segment Size: 30
+Mutator: SegmentMutator
+Mutation Rate: 30
 Breeding Selector: BreedTop
 Elite Percentage: 20
 Copy Elite: y

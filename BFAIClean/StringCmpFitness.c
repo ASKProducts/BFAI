@@ -27,6 +27,11 @@ void initStringCmp(void){
 }
 
 void calculateStringCmpFitness(Genome *g){
+    bool hadFitness= (g->fitness != -1);
+    int oldFitness = g->fitness;
+    if(g->fitness != -1) {
+        //return;
+    }
     int score = 0;
     interpreter.run(&g->program, NULL, 0);
     int len = (fitness.targetLen < g->program.generic.outputLen) ? fitness.targetLen : g->program.generic.outputLen;
@@ -41,6 +46,10 @@ void calculateStringCmpFitness(Genome *g){
     if(fitness.targetLen == g->program.generic.outputLen)
         score += fitness.lengthReward;
     g->fitness = score;
+    
+    if(hadFitness && oldFitness != score){
+        printf("Discrepancy!");
+    }
 }
 
 void scanStringCmp(FILE *file){
@@ -54,6 +63,8 @@ void scanStringCmp(FILE *file){
     fscanf(file, "Build Up String: %c\n", &c);
     fitness.buildUpString = (c == 'y');
     fscanf(file, "Length Reward: %d\n", &fitness.lengthReward);
+    
+    fitness.perfectFitness = 256*fitness.targetLen + fitness.lengthReward;
 }
 
 void saveStringCmp(FILE *file){

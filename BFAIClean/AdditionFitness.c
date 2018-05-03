@@ -25,8 +25,8 @@ void initAdditionFitness(void){
 }
 void calculateAdditionFitness(Genome *g){
     int score = 0;
-    for (int i = 0; i < 5; i+= 1) {
-        for (int j = 0; j < 5; j+= 1) {
+    for (int i = 10; i < 60; i+= 10) {
+        for (int j = 10; j < 60; j+= 10) {
             char input[] = {i,j};
             interpreter.run(&g->program, input, 2);
             if(g->program.generic.outputLen != 1) continue;

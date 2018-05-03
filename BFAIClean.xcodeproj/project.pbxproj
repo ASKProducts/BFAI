@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5719E6ED20945A480038E6C8 /* OysterInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 5719E6EC20945A480038E6C8 /* OysterInterpreter.c */; };
+		5719E6F12096FD230038E6C8 /* SegmentedMutator.c in Sources */ = {isa = PBXBuildFile; fileRef = 5719E6F02096FD230038E6C8 /* SegmentedMutator.c */; };
 		57352C15208D82B00025AF33 /* Genetics.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C14208D82B00025AF33 /* Genetics.c */; };
 		57352C18208D894C0025AF33 /* Algorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C17208D894C0025AF33 /* Algorithm.c */; };
 		57352C1C208DAD6D0025AF33 /* SinglePopulationAlgorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C1B208DAD6D0025AF33 /* SinglePopulationAlgorithm.c */; };
@@ -25,6 +27,7 @@
 		576D6FF120869A3F00218D93 /* StupidInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF020869A3F00218D93 /* StupidInterpreter.c */; };
 		576D6FF72089EE7200218D93 /* FastBFInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF62089EE7200218D93 /* FastBFInterpreter.c */; };
 		578633852092B07600FF8C07 /* AdditionFitness.c in Sources */ = {isa = PBXBuildFile; fileRef = 578633842092B07600FF8C07 /* AdditionFitness.c */; };
+		578633882092BF9400FF8C07 /* SegmentBreeder.c in Sources */ = {isa = PBXBuildFile; fileRef = 578633872092BF9400FF8C07 /* SegmentBreeder.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +43,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5719E6EB20945A480038E6C8 /* OysterInterpreter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OysterInterpreter.h; sourceTree = "<group>"; };
+		5719E6EC20945A480038E6C8 /* OysterInterpreter.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = OysterInterpreter.c; sourceTree = "<group>"; };
+		5719E6EE2094602D0038E6C8 /* OysterTest.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = OysterTest.lf; sourceTree = "<group>"; };
+		5719E6EF2096FD230038E6C8 /* SegmentedMutator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentedMutator.h; sourceTree = "<group>"; };
+		5719E6F02096FD230038E6C8 /* SegmentedMutator.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SegmentedMutator.c; sourceTree = "<group>"; };
 		57352C0F2089F31B0025AF33 /* FastTest.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = FastTest.lf; sourceTree = "<group>"; };
 		57352C13208D82B00025AF33 /* Genetics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Genetics.h; sourceTree = "<group>"; };
 		57352C14208D82B00025AF33 /* Genetics.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Genetics.c; sourceTree = "<group>"; };
@@ -82,6 +90,8 @@
 		578633822092915100FF8C07 /* Addition.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = Addition.lf; sourceTree = "<group>"; };
 		578633832092B07600FF8C07 /* AdditionFitness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdditionFitness.h; sourceTree = "<group>"; };
 		578633842092B07600FF8C07 /* AdditionFitness.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = AdditionFitness.c; sourceTree = "<group>"; };
+		578633862092BF9400FF8C07 /* SegmentBreeder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentBreeder.h; sourceTree = "<group>"; };
+		578633872092BF9400FF8C07 /* SegmentBreeder.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SegmentBreeder.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,7 @@
 				576D6FF22086A03600218D93 /* Stupid.lf */,
 				57352C0F2089F31B0025AF33 /* FastTest.lf */,
 				57352C1D208EEF100025AF33 /* BasicTest.lf */,
+				5719E6EE2094602D0038E6C8 /* OysterTest.lf */,
 				578633822092915100FF8C07 /* Addition.lf */,
 				57352C3A2091CFB90025AF33 /* SaveTest.lf */,
 			);
@@ -135,6 +146,8 @@
 				576D6FF020869A3F00218D93 /* StupidInterpreter.c */,
 				576D6FF52089EE7200218D93 /* FastBFInterpreter.h */,
 				576D6FF62089EE7200218D93 /* FastBFInterpreter.c */,
+				5719E6EB20945A480038E6C8 /* OysterInterpreter.h */,
+				5719E6EC20945A480038E6C8 /* OysterInterpreter.c */,
 			);
 			name = Interpreters;
 			sourceTree = "<group>";
@@ -153,6 +166,8 @@
 			children = (
 				57352C22208FD11C0025AF33 /* RandomCrossoverBreeder.h */,
 				57352C23208FD11C0025AF33 /* RandomCrossoverBreeder.c */,
+				578633862092BF9400FF8C07 /* SegmentBreeder.h */,
+				578633872092BF9400FF8C07 /* SegmentBreeder.c */,
 			);
 			name = Breeders;
 			sourceTree = "<group>";
@@ -164,6 +179,8 @@
 				57352C2A208FD7310025AF33 /* RandomReplaceMutator.c */,
 				57352C3B20924AD00025AF33 /* ReplaceInsertMutator.h */,
 				57352C3C20924AD00025AF33 /* ReplaceInsertMutator.c */,
+				5719E6EF2096FD230038E6C8 /* SegmentedMutator.h */,
+				5719E6F02096FD230038E6C8 /* SegmentedMutator.c */,
 			);
 			name = Mutators;
 			sourceTree = "<group>";
@@ -285,14 +302,17 @@
 				57352C20208EF0960025AF33 /* Breeder.c in Sources */,
 				57352C24208FD11C0025AF33 /* RandomCrossoverBreeder.c in Sources */,
 				578633852092B07600FF8C07 /* AdditionFitness.c in Sources */,
+				5719E6F12096FD230038E6C8 /* SegmentedMutator.c in Sources */,
 				57352C1C208DAD6D0025AF33 /* SinglePopulationAlgorithm.c in Sources */,
 				576D6FEB208695C800218D93 /* Settings.c in Sources */,
 				57352C3920917ED00025AF33 /* StringCmpFitness.c in Sources */,
 				57352C2E208FF7680025AF33 /* BreedingSelector.c in Sources */,
 				576D6FF72089EE7200218D93 /* FastBFInterpreter.c in Sources */,
 				57352C27208FD4C30025AF33 /* Mutator.c in Sources */,
+				578633882092BF9400FF8C07 /* SegmentBreeder.c in Sources */,
 				57352C3D20924AD00025AF33 /* ReplaceInsertMutator.c in Sources */,
 				576D6FF120869A3F00218D93 /* StupidInterpreter.c in Sources */,
+				5719E6ED20945A480038E6C8 /* OysterInterpreter.c in Sources */,
 				57352C15208D82B00025AF33 /* Genetics.c in Sources */,
 				57352C32209022D50025AF33 /* BreedTop.c in Sources */,
 				576D6FEE2086973F00218D93 /* Interpreter.c in Sources */,

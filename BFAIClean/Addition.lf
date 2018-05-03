@@ -4,11 +4,12 @@ Allow Input: y
 Possible Genes: +-<>[].,_
 Max Instruction Count: 100
 Algorithm: SinglePopulation
-Genome Length: 100
-Population Size: 100
-Breeder: RandomCrossover
+Genome Length: 300
+Population Size: 1000
+Breeder: SegmentBreeder
+Segment Size: 20
 Mutator: ReplaceInsert
-Mutation Rate: 30
+Mutation Rate: 50
 Breeding Selector: BreedTop
 Elite Percentage: 20
 Copy Elite: y

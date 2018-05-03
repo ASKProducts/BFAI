@@ -23,6 +23,7 @@ typedef struct _Mutator{
     SaveFunc save;
     
     int mutationRate;
+    int segmentSize;
 } Mutator;
 
 #endif /* Mutator_h */

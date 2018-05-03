@@ -37,7 +37,7 @@ extern FitnessFunction fitness;
  . overarching strategy
  */
 
-char *loadfileName ="./Addition.lf";
+char *loadfileName ="./BasicTest.lf";
 
 int main(int argc, const char * argv[]) {
     srand((int)time(NULL));
@@ -45,10 +45,20 @@ int main(int argc, const char * argv[]) {
     FILE *file = fopen(loadfileName, "r");
     initializeSettings(file);
     
-    Program p;
-    interpreter.process(",[.,]", &p);
+    
+    /*Program p;
+    interpreter.process("JFI++.H<FGD+IBDJ>.D.-DBF-.GAID"
+                        "J-ADDF+-HIIJ>-+JG-IDIGIGE<,FHF"
+                        ",HG<FD++>FA,DJBEJJHHHEEFJHD,.."
+                        ",A>+D,FEJFBFAG<DAA<BH>E>EJ.FHF"
+                        "+,J<FBJBD.AD>GFA..I+EE<GD-,>D,"
+                        "EH,HA--HJ-<E+D>+EJII-+H<<EB.FB"
+                        "HH>HDF>F>+-F><DIBGDEA-.<-I+<-I"
+                        "..J-H-DAF-I,DBEFF.IJI<G.J+,+GI"
+                        "+EE.++D.B.HJFDFEI,IGA.J>I+.E<J"
+                        ",.EG.FHGDHD+D.>E<+>>,DHG<F>DJ.", &p);
     interpreter.run(&p, "Hello World!", 12);
-    printf("%s\n", p.generic.output);
+    printf("%s\n", p.generic.output);*/
     
     Genome g, g2, c1, c2;
     for (int i = 0; i < algorithm.genomeLength; i++) {
@@ -64,7 +74,7 @@ int main(int argc, const char * argv[]) {
     breeder.breed(&g,&g2, &c2);
     printf("\n%s\n\n%s\n", c1.dna, c2.dna);
     
-    
+    /*
     Genome ge;
     strcpy(ge.dna, ",[--[+[--[,++++..<-],+++.>.-],+.],++.],.");
     processGenome(&ge);
@@ -73,7 +83,7 @@ int main(int argc, const char * argv[]) {
     interpreter.run(&ge.program, input, 2);
     printf("%d\n", ge.program.generic.output[0]);
     
-    fitness.calculate(&ge);
+    fitness.calculate(&ge);*/
     
     algorithm.run(file);
     

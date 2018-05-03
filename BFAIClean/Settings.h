@@ -39,18 +39,29 @@ typedef void (*InitFunc) (void);
 //Init functions do all their initializations into interpreters[numInterpreters], and at the end of
 //the function must call numInterpreters++ and:
 // assert(sizeof(GenericProgram) + GENERIC_PROGRAM_PADDING < sizeof( PROGRAM TYPE ));
-#define interpreterInits {initStupidInterpreter, initFastBFInterpreter}
+#define interpreterInits {initStupidInterpreter, initFastBFInterpreter, initOysterInterpreter}
 
 #define algorithmInits {initSinglePopulation}
 
-#define breederInits {initRandomCrossover}
+#define breederInits {initRandomCrossover, initSegmentBreeder}
 
-#define mutatorInits {initRandomReplace, initReplaceInsert}
+#define mutatorInits {initRandomReplace, initReplaceInsert, initSegmentMutator}
 
 #define selectorInits {initBreedTop}
 
 #define fitnessFuncInits {initStringCmp, initAdditionFitness}
 
 
+/* It's beyond annoying that C doesn't have these: */
+
+#define min(a,b) \
+({ __typeof__ (a) _a = (a); \
+__typeof__ (b) _b = (b); \
+_a < _b ? _a : _b; })
+
+#define max(a,b) \
+({ __typeof__ (a) _a = (a); \
+__typeof__ (b) _b = (b); \
+_a > _b ? _a : _b; })
 
 #endif /* Settings_h */

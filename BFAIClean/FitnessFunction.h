@@ -23,6 +23,8 @@ typedef struct _FitnessFunction{
     ScanFunc scan;
     SaveFunc save;
     
+    int perfectFitness;
+    
     /* StringCompareFitness */
     char target[MAX_TARGET_STRING];
     int targetLen;

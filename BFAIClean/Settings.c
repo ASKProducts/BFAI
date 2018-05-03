@@ -15,6 +15,7 @@
 #include "Mutator.h"
 #include "Algorithm.h"
 #include "Breeder.h"
+#include "OysterInterpreter.h"
 #include "RandomReplaceMutator.h"
 #include "BreedingSelector.h"
 #include "StringCmpFitness.h"
@@ -22,6 +23,8 @@
 #include "BreedTop.h"
 #include "FitnessFunction.h"
 #include "AdditionFitness.h"
+#include "SegmentedMutator.h"
+#include "SegmentBreeder.h"
 #include <string.h>
 
 InitFunc initInterpreterFuncs[] = interpreterInits;
@@ -184,7 +187,7 @@ void prepareAlgorithm(FILE *file){
 }
 
 void prepareBreeder(FILE *file){
-    algorithm.scan(file);
+    breeder.scan(file);
 }
 
 void prepareMutator(FILE *file){

@@ -55,7 +55,13 @@ typedef struct _Interpreter{
     /* All Brainfuck Interpreters */
     int tapeLength;
     int tapeMaxVal;
-} Interpreter;
+    
+    /*Oyster*/
+    int numLines;
+    int lineLength;
+    bool continueLines;
+    
+}Interpreter;
 
 
 
