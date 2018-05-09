@@ -82,8 +82,8 @@ void saveDoubleBFInterpreter(FILE *file){
 #define advance(code) do{code++;}while(*code && !interpreter.isValid[*code])
 void processDoubleBFInterpreter(char *code, DBFProgram *program){
 
-	processFastBFInterpreter(code, program->program1);
-	processFastBFInterpreter(code+150, program->program2);
+	processFastBFInterpreter(code, &program->program1);
+	processFastBFInterpreter(code+150, &program->program2);
     //int len = (int)strlen(code);
 /*    program->generic.code = code;
     int opC = 0;

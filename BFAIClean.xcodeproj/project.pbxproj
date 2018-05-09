@@ -26,6 +26,7 @@
 		576D6FEE2086973F00218D93 /* Interpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FED2086973F00218D93 /* Interpreter.c */; };
 		576D6FF120869A3F00218D93 /* StupidInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF020869A3F00218D93 /* StupidInterpreter.c */; };
 		576D6FF72089EE7200218D93 /* FastBFInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF62089EE7200218D93 /* FastBFInterpreter.c */; };
+		5771C2D420A2C3180021D2BF /* DoubleBFInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 5771C2D220A2C3180021D2BF /* DoubleBFInterpreter.c */; };
 		578633852092B07600FF8C07 /* AdditionFitness.c in Sources */ = {isa = PBXBuildFile; fileRef = 578633842092B07600FF8C07 /* AdditionFitness.c */; };
 		578633882092BF9400FF8C07 /* SegmentBreeder.c in Sources */ = {isa = PBXBuildFile; fileRef = 578633872092BF9400FF8C07 /* SegmentBreeder.c */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,8 @@
 		576D6FF32086A06300218D93 /* LoadFileTemplate */ = {isa = PBXFileReference; lastKnownFileType = text; path = LoadFileTemplate; sourceTree = "<group>"; };
 		576D6FF52089EE7200218D93 /* FastBFInterpreter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastBFInterpreter.h; sourceTree = "<group>"; };
 		576D6FF62089EE7200218D93 /* FastBFInterpreter.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = FastBFInterpreter.c; sourceTree = "<group>"; };
+		5771C2D220A2C3180021D2BF /* DoubleBFInterpreter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DoubleBFInterpreter.c; sourceTree = "<group>"; };
+		5771C2D320A2C3180021D2BF /* DoubleBFInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleBFInterpreter.h; sourceTree = "<group>"; };
 		578633822092915100FF8C07 /* Addition.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = Addition.lf; sourceTree = "<group>"; };
 		578633832092B07600FF8C07 /* AdditionFitness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdditionFitness.h; sourceTree = "<group>"; };
 		578633842092B07600FF8C07 /* AdditionFitness.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = AdditionFitness.c; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				576D6FF020869A3F00218D93 /* StupidInterpreter.c */,
 				576D6FF52089EE7200218D93 /* FastBFInterpreter.h */,
 				576D6FF62089EE7200218D93 /* FastBFInterpreter.c */,
+				5771C2D220A2C3180021D2BF /* DoubleBFInterpreter.c */,
+				5771C2D320A2C3180021D2BF /* DoubleBFInterpreter.h */,
 				5719E6EB20945A480038E6C8 /* OysterInterpreter.h */,
 				5719E6EC20945A480038E6C8 /* OysterInterpreter.c */,
 			);
@@ -300,6 +305,7 @@
 				57352C36209105F10025AF33 /* FitnessFunction.c in Sources */,
 				57352C2B208FD7310025AF33 /* RandomReplaceMutator.c in Sources */,
 				57352C20208EF0960025AF33 /* Breeder.c in Sources */,
+				5771C2D420A2C3180021D2BF /* DoubleBFInterpreter.c in Sources */,
 				57352C24208FD11C0025AF33 /* RandomCrossoverBreeder.c in Sources */,
 				578633852092B07600FF8C07 /* AdditionFitness.c in Sources */,
 				5719E6F12096FD230038E6C8 /* SegmentedMutator.c in Sources */,
