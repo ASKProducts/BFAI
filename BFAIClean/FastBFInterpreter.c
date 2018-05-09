@@ -40,6 +40,7 @@ int modInverse(int a, int m){
 }
 
 void initFastBFInterpreter(void){
+    
     interpreters[numInterpreters].name = "FastBF";
     interpreters[numInterpreters].process = (ProcessFunc)processFastBFInterpreter;
     interpreters[numInterpreters].run = (RunFunc)runFastBFInterpreter;

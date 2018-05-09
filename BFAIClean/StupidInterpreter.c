@@ -16,6 +16,7 @@ extern Interpreter interpreter;
 extern int numInterpreters;
 
 void initStupidInterpreter(){
+    
     interpreters[numInterpreters].name = "StupidInterpreter";
     interpreters[numInterpreters].process = (ProcessFunc)processStupidInterpreter;
     interpreters[numInterpreters].run = (RunFunc)runStupidInterpreter;
