@@ -46,10 +46,22 @@ int genomeCmp(const void *g1, const void *g2){
     return r->fitness - l->fitness;
 }
 
+//sort population sorts the array of pointers to genomes
 void sortPopulation(Population *p){
     qsort(p->sorted, algorithm.populationSize, sizeof(Genome*), genomeCmp);
 }
 
+
+int populationCmp(const void* p1, const void* p2){
+    Population *pop1 = (Population*)p1;
+    Population *pop2 = (Population*)p2;
+    return pop2->bestFitness - pop1->bestFitness;
+}
+
+//sortPops sorts the actual populations themselves
+void sortPops(Population *pops){
+    qsort(pops, algorithm.numPopulations, sizeof(Population), populationCmp);
+}
 
 
 

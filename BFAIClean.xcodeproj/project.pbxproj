@@ -29,10 +29,48 @@
 		5771C2D420A2C3180021D2BF /* DoubleBFInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 5771C2D220A2C3180021D2BF /* DoubleBFInterpreter.c */; };
 		578633852092B07600FF8C07 /* AdditionFitness.c in Sources */ = {isa = PBXBuildFile; fileRef = 578633842092B07600FF8C07 /* AdditionFitness.c */; };
 		578633882092BF9400FF8C07 /* SegmentBreeder.c in Sources */ = {isa = PBXBuildFile; fileRef = 578633872092BF9400FF8C07 /* SegmentBreeder.c */; };
+		57A42A8C20AA3D7D00123951 /* ManyPopulationsAlgorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A42A8B20AA3D7D00123951 /* ManyPopulationsAlgorithm.c */; };
+		57A42A9020B30FE300123951 /* Timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A42A8F20B30FE300123951 /* Timer.c */; };
+		57A42A9820B31B6000123951 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A42A9720B31B6000123951 /* main.c */; };
+		57A42A9F20B31F0700123951 /* Settings.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FEA208695C800218D93 /* Settings.c */; };
+		57A42AA020B31F0700123951 /* Interpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FED2086973F00218D93 /* Interpreter.c */; };
+		57A42AA120B31F0700123951 /* Genetics.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C14208D82B00025AF33 /* Genetics.c */; };
+		57A42AA220B31F0700123951 /* FastBFInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF62089EE7200218D93 /* FastBFInterpreter.c */; };
+		57A42AA320B31F2300123951 /* Algorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C17208D894C0025AF33 /* Algorithm.c */; };
+		57A42AA420B31F2300123951 /* Breeder.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C1F208EF0960025AF33 /* Breeder.c */; };
+		57A42AA520B31F2300123951 /* Mutator.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C26208FD4C30025AF33 /* Mutator.c */; };
+		57A42AA620B31F2300123951 /* BreedingSelector.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C2D208FF7680025AF33 /* BreedingSelector.c */; };
+		57A42AA720B31F2300123951 /* FitnessFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C35209105F10025AF33 /* FitnessFunction.c */; };
+		57A42AA820B31F2300123951 /* Timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A42A8F20B30FE300123951 /* Timer.c */; };
+		57A42AA920B31F2300123951 /* StupidInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6FF020869A3F00218D93 /* StupidInterpreter.c */; };
+		57A42AAA20B31F2300123951 /* DoubleBFInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 5771C2D220A2C3180021D2BF /* DoubleBFInterpreter.c */; };
+		57A42AAB20B31F2300123951 /* OysterInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 5719E6EC20945A480038E6C8 /* OysterInterpreter.c */; };
+		57A42AAC20B31F2300123951 /* SinglePopulationAlgorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C1B208DAD6D0025AF33 /* SinglePopulationAlgorithm.c */; };
+		57A42AAD20B31F2300123951 /* ManyPopulationsAlgorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A42A8B20AA3D7D00123951 /* ManyPopulationsAlgorithm.c */; };
+		57A42AAE20B31F2300123951 /* RandomCrossoverBreeder.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C23208FD11C0025AF33 /* RandomCrossoverBreeder.c */; };
+		57A42AAF20B31F2300123951 /* SegmentBreeder.c in Sources */ = {isa = PBXBuildFile; fileRef = 578633872092BF9400FF8C07 /* SegmentBreeder.c */; };
+		57A42AB020B31F2300123951 /* RandomReplaceMutator.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C2A208FD7310025AF33 /* RandomReplaceMutator.c */; };
+		57A42AB120B31F2300123951 /* ReplaceInsertMutator.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C3C20924AD00025AF33 /* ReplaceInsertMutator.c */; };
+		57A42AB220B31F2300123951 /* SegmentedMutator.c in Sources */ = {isa = PBXBuildFile; fileRef = 5719E6F02096FD230038E6C8 /* SegmentedMutator.c */; };
+		57A42AB320B31F2300123951 /* BreedTop.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C31209022D50025AF33 /* BreedTop.c */; };
+		57A42AB420B31F2300123951 /* StringCmpFitness.c in Sources */ = {isa = PBXBuildFile; fileRef = 57352C3820917ED00025AF33 /* StringCmpFitness.c */; };
+		57A42AB520B31F2300123951 /* AdditionFitness.c in Sources */ = {isa = PBXBuildFile; fileRef = 578633842092B07600FF8C07 /* AdditionFitness.c */; };
+		57A42AB820B32A1A00123951 /* BasicTreeInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A42AB720B32A1A00123951 /* BasicTreeInterpreter.c */; };
+		57A42ABA20B335DF00123951 /* BasicTreeInterpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A42AB720B32A1A00123951 /* BasicTreeInterpreter.c */; };
+		57A42ABD20B3825900123951 /* TreeFunctionFitness.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A42ABC20B3825900123951 /* TreeFunctionFitness.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		576D6FDD208694FA00218D93 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		57A42A9320B31B6000123951 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -95,10 +133,31 @@
 		578633842092B07600FF8C07 /* AdditionFitness.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = AdditionFitness.c; sourceTree = "<group>"; };
 		578633862092BF9400FF8C07 /* SegmentBreeder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentBreeder.h; sourceTree = "<group>"; };
 		578633872092BF9400FF8C07 /* SegmentBreeder.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SegmentBreeder.c; sourceTree = "<group>"; };
+		57A42A8A20AA3D7D00123951 /* ManyPopulationsAlgorithm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManyPopulationsAlgorithm.h; sourceTree = "<group>"; };
+		57A42A8B20AA3D7D00123951 /* ManyPopulationsAlgorithm.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ManyPopulationsAlgorithm.c; sourceTree = "<group>"; };
+		57A42A8D20AA3FE400123951 /* ManyPopTest.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = ManyPopTest.lf; sourceTree = "<group>"; };
+		57A42A8E20B30FE300123951 /* Timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		57A42A8F20B30FE300123951 /* Timer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Timer.c; sourceTree = "<group>"; };
+		57A42A9520B31B6000123951 /* BFAIAnalytics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BFAIAnalytics; sourceTree = BUILT_PRODUCTS_DIR; };
+		57A42A9720B31B6000123951 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		57A42A9D20B31BA700123951 /* includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = includes.h; sourceTree = "<group>"; };
+		57A42A9E20B31C4500123951 /* AnalyticsSettings.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnalyticsSettings.lf; sourceTree = "<group>"; };
+		57A42AB620B32A1A00123951 /* BasicTreeInterpreter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicTreeInterpreter.h; sourceTree = "<group>"; };
+		57A42AB720B32A1A00123951 /* BasicTreeInterpreter.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = BasicTreeInterpreter.c; sourceTree = "<group>"; };
+		57A42AB920B3335300123951 /* TreeTest.lf */ = {isa = PBXFileReference; lastKnownFileType = text; path = TreeTest.lf; sourceTree = "<group>"; };
+		57A42ABB20B3825900123951 /* TreeFunctionFitness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeFunctionFitness.h; sourceTree = "<group>"; };
+		57A42ABC20B3825900123951 /* TreeFunctionFitness.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TreeFunctionFitness.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		576D6FDC208694FA00218D93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A42A9220B31B6000123951 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -114,9 +173,11 @@
 				576D6FF22086A03600218D93 /* Stupid.lf */,
 				57352C0F2089F31B0025AF33 /* FastTest.lf */,
 				57352C1D208EEF100025AF33 /* BasicTest.lf */,
+				57A42A8D20AA3FE400123951 /* ManyPopTest.lf */,
 				5719E6EE2094602D0038E6C8 /* OysterTest.lf */,
 				578633822092915100FF8C07 /* Addition.lf */,
 				57352C3A2091CFB90025AF33 /* SaveTest.lf */,
+				57A42AB920B3335300123951 /* TreeTest.lf */,
 			);
 			name = Loadfiles;
 			sourceTree = "<group>";
@@ -138,6 +199,8 @@
 				57352C2D208FF7680025AF33 /* BreedingSelector.c */,
 				57352C34209105F10025AF33 /* FitnessFunction.h */,
 				57352C35209105F10025AF33 /* FitnessFunction.c */,
+				57A42A8E20B30FE300123951 /* Timer.h */,
+				57A42A8F20B30FE300123951 /* Timer.c */,
 			);
 			name = "Generic Structures";
 			sourceTree = "<group>";
@@ -153,6 +216,8 @@
 				5771C2D320A2C3180021D2BF /* DoubleBFInterpreter.h */,
 				5719E6EB20945A480038E6C8 /* OysterInterpreter.h */,
 				5719E6EC20945A480038E6C8 /* OysterInterpreter.c */,
+				57A42AB620B32A1A00123951 /* BasicTreeInterpreter.h */,
+				57A42AB720B32A1A00123951 /* BasicTreeInterpreter.c */,
 			);
 			name = Interpreters;
 			sourceTree = "<group>";
@@ -162,6 +227,8 @@
 			children = (
 				57352C1A208DAD6D0025AF33 /* SinglePopulationAlgorithm.h */,
 				57352C1B208DAD6D0025AF33 /* SinglePopulationAlgorithm.c */,
+				57A42A8A20AA3D7D00123951 /* ManyPopulationsAlgorithm.h */,
+				57A42A8B20AA3D7D00123951 /* ManyPopulationsAlgorithm.c */,
 			);
 			name = "Genetic Algorithms";
 			sourceTree = "<group>";
@@ -206,6 +273,8 @@
 				57352C3820917ED00025AF33 /* StringCmpFitness.c */,
 				578633832092B07600FF8C07 /* AdditionFitness.h */,
 				578633842092B07600FF8C07 /* AdditionFitness.c */,
+				57A42ABB20B3825900123951 /* TreeFunctionFitness.h */,
+				57A42ABC20B3825900123951 /* TreeFunctionFitness.c */,
 			);
 			name = "Fitness Functions";
 			sourceTree = "<group>";
@@ -214,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				576D6FE1208694FA00218D93 /* BFAIClean */,
+				57A42A9620B31B6000123951 /* BFAIAnalytics */,
 				576D6FE0208694FA00218D93 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -222,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				576D6FDF208694FA00218D93 /* BFAIClean */,
+				57A42A9520B31B6000123951 /* BFAIAnalytics */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +316,16 @@
 			path = BFAIClean;
 			sourceTree = "<group>";
 		};
+		57A42A9620B31B6000123951 /* BFAIAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				57A42A9720B31B6000123951 /* main.c */,
+				57A42A9D20B31BA700123951 /* includes.h */,
+				57A42A9E20B31C4500123951 /* AnalyticsSettings.lf */,
+			);
+			path = BFAIAnalytics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +346,23 @@
 			productReference = 576D6FDF208694FA00218D93 /* BFAIClean */;
 			productType = "com.apple.product-type.tool";
 		};
+		57A42A9420B31B6000123951 /* BFAIAnalytics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57A42A9920B31B6000123951 /* Build configuration list for PBXNativeTarget "BFAIAnalytics" */;
+			buildPhases = (
+				57A42A9120B31B6000123951 /* Sources */,
+				57A42A9220B31B6000123951 /* Frameworks */,
+				57A42A9320B31B6000123951 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BFAIAnalytics;
+			productName = BFAIAnalytics;
+			productReference = 57A42A9520B31B6000123951 /* BFAIAnalytics */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,6 +373,10 @@
 				ORGANIZATIONNAME = "Aaron Kaufer";
 				TargetAttributes = {
 					576D6FDE208694FA00218D93 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					57A42A9420B31B6000123951 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -293,6 +395,7 @@
 			projectRoot = "";
 			targets = (
 				576D6FDE208694FA00218D93 /* BFAIClean */,
+				57A42A9420B31B6000123951 /* BFAIAnalytics */,
 			);
 		};
 /* End PBXProject section */
@@ -302,8 +405,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A42ABD20B3825900123951 /* TreeFunctionFitness.c in Sources */,
 				57352C36209105F10025AF33 /* FitnessFunction.c in Sources */,
 				57352C2B208FD7310025AF33 /* RandomReplaceMutator.c in Sources */,
+				57A42AB820B32A1A00123951 /* BasicTreeInterpreter.c in Sources */,
 				57352C20208EF0960025AF33 /* Breeder.c in Sources */,
 				5771C2D420A2C3180021D2BF /* DoubleBFInterpreter.c in Sources */,
 				57352C24208FD11C0025AF33 /* RandomCrossoverBreeder.c in Sources */,
@@ -311,9 +416,11 @@
 				5719E6F12096FD230038E6C8 /* SegmentedMutator.c in Sources */,
 				57352C1C208DAD6D0025AF33 /* SinglePopulationAlgorithm.c in Sources */,
 				576D6FEB208695C800218D93 /* Settings.c in Sources */,
+				57A42A9020B30FE300123951 /* Timer.c in Sources */,
 				57352C3920917ED00025AF33 /* StringCmpFitness.c in Sources */,
 				57352C2E208FF7680025AF33 /* BreedingSelector.c in Sources */,
 				576D6FF72089EE7200218D93 /* FastBFInterpreter.c in Sources */,
+				57A42A8C20AA3D7D00123951 /* ManyPopulationsAlgorithm.c in Sources */,
 				57352C27208FD4C30025AF33 /* Mutator.c in Sources */,
 				578633882092BF9400FF8C07 /* SegmentBreeder.c in Sources */,
 				57352C3D20924AD00025AF33 /* ReplaceInsertMutator.c in Sources */,
@@ -324,6 +431,38 @@
 				576D6FEE2086973F00218D93 /* Interpreter.c in Sources */,
 				57352C18208D894C0025AF33 /* Algorithm.c in Sources */,
 				576D6FE3208694FA00218D93 /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A42A9120B31B6000123951 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A42ABA20B335DF00123951 /* BasicTreeInterpreter.c in Sources */,
+				57A42AA320B31F2300123951 /* Algorithm.c in Sources */,
+				57A42AA420B31F2300123951 /* Breeder.c in Sources */,
+				57A42AA520B31F2300123951 /* Mutator.c in Sources */,
+				57A42AA620B31F2300123951 /* BreedingSelector.c in Sources */,
+				57A42AA720B31F2300123951 /* FitnessFunction.c in Sources */,
+				57A42AA820B31F2300123951 /* Timer.c in Sources */,
+				57A42AA920B31F2300123951 /* StupidInterpreter.c in Sources */,
+				57A42AAA20B31F2300123951 /* DoubleBFInterpreter.c in Sources */,
+				57A42AAB20B31F2300123951 /* OysterInterpreter.c in Sources */,
+				57A42AAC20B31F2300123951 /* SinglePopulationAlgorithm.c in Sources */,
+				57A42AAD20B31F2300123951 /* ManyPopulationsAlgorithm.c in Sources */,
+				57A42AAE20B31F2300123951 /* RandomCrossoverBreeder.c in Sources */,
+				57A42AAF20B31F2300123951 /* SegmentBreeder.c in Sources */,
+				57A42AB020B31F2300123951 /* RandomReplaceMutator.c in Sources */,
+				57A42AB120B31F2300123951 /* ReplaceInsertMutator.c in Sources */,
+				57A42AB220B31F2300123951 /* SegmentedMutator.c in Sources */,
+				57A42AB320B31F2300123951 /* BreedTop.c in Sources */,
+				57A42AB420B31F2300123951 /* StringCmpFitness.c in Sources */,
+				57A42AB520B31F2300123951 /* AdditionFitness.c in Sources */,
+				57A42A9F20B31F0700123951 /* Settings.c in Sources */,
+				57A42AA020B31F0700123951 /* Interpreter.c in Sources */,
+				57A42AA120B31F0700123951 /* Genetics.c in Sources */,
+				57A42AA220B31F0700123951 /* FastBFInterpreter.c in Sources */,
+				57A42A9820B31B6000123951 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +590,24 @@
 			};
 			name = Release;
 		};
+		57A42A9A20B31B6000123951 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C9VA399HSJ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		57A42A9B20B31B6000123951 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C9VA399HSJ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -468,6 +625,15 @@
 			buildConfigurations = (
 				576D6FE7208694FA00218D93 /* Debug */,
 				576D6FE8208694FA00218D93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57A42A9920B31B6000123951 /* Build configuration list for PBXNativeTarget "BFAIAnalytics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57A42A9A20B31B6000123951 /* Debug */,
+				57A42A9B20B31B6000123951 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

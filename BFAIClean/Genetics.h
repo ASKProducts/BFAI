@@ -34,6 +34,7 @@ typedef struct _Population{
 
 void initializeRandomPopulation(Population *p);
 void sortPopulation(Population *p);
+void sortPops(Population *pops);
 
 
 

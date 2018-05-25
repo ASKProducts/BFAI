@@ -21,11 +21,12 @@ void initAdditionFitness(void){
         .scan = scanAdditionFitness,
         .save = saveAdditionFitness
     };
+    
     numFitnessFuncs++;
 }
 void calculateAdditionFitness(Genome *g){
     int score = 0;
-    for (int i = 10; i < 60; i+= 10) {
+    for (int i = fitness.start; i <= fitness.stop; i+= fitness.step) {
         for (int j = 10; j < 60; j+= 10) {
             char input[] = {i,j};
             interpreter.run(&g->program, input, 2);
@@ -36,8 +37,10 @@ void calculateAdditionFitness(Genome *g){
     g->fitness = score;
 }
 void scanAdditionFitness(FILE *file){
-    
+    fscanf(file, "Test Range (start, stop, step): %d %d %d", &fitness.start, &fitness.stop, &fitness.step);
+    int rangeLen = (fitness.stop - fitness.start)/fitness.step + 1;
+    fitness.perfectFitness = rangeLen*rangeLen;
 }
 void saveAdditionFitness(FILE *file){
-    
+    fprintf(file, "Test Range (start, stop, step): %d, %d, %d", fitness.start, fitness.stop, fitness.step);
 }

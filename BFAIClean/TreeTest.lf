@@ -1,0 +1,18 @@
+Interpreter: BasicTree
+Operators: +-*/
+Constants: 0123456789x
+Algorithm: ManyPopulations
+Genome Length: 200
+Number of Populations: 10
+Population Size: 100
+Checkin Interval: 1000
+Breeder: SegmentBreeder
+Segment Size: 1
+Mutator: ReplaceInsert
+Mutation Rate: 10
+Breeding Selector: BreedTop
+Elite Percentage: 20
+Copy Elite: y
+Fitness Function: TreeFunction
+Precision: 100000000
+Test Values: range -10 1 20

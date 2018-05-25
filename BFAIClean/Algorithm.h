@@ -24,7 +24,10 @@ typedef struct _GeneticAlgorithm{
     
     int genomeLength;
     int populationSize;
-
+    
+    //Many populations
+    int numPopulations;
+    int checkinInterval;
     
 } GeneticAlgorithm;
 

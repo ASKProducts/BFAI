@@ -27,6 +27,7 @@ typedef void (*InitFunc) (void);
 #define PROGRAM_MAX_OUTPUT_LEN 100
 #define MAX_DNA_LENGTH 1000
 #define MAX_POPULATION_SIZE 5000
+#define MAX_GENERATION_COUNT 10000000
 
 //For faster results(?), if you know what program type you're using, you can set GENERIC_PROGRAM_PADDING to (sizeof(YOUR_PROGRAM_TYPE) - sizeof(GenericProgram)), or just hardcode smaller values
 #define GENERIC_PROGRAM_PADDING 5500
@@ -39,9 +40,9 @@ typedef void (*InitFunc) (void);
 //Init functions do all their initializations into interpreters[numInterpreters], and at the end of
 //the function must call numInterpreters++ and:
 // assert(sizeof(GenericProgram) + GENERIC_PROGRAM_PADDING < sizeof( PROGRAM TYPE ));
-#define interpreterInits {initStupidInterpreter, initFastBFInterpreter, initOysterInterpreter}
+#define interpreterInits {initStupidInterpreter, initFastBFInterpreter, initOysterInterpreter, initBasicTreeInterpreter}
 
-#define algorithmInits {initSinglePopulation}
+#define algorithmInits {initSinglePopulation, initManyPopulations}
 
 #define breederInits {initRandomCrossover, initSegmentBreeder}
 
@@ -49,7 +50,7 @@ typedef void (*InitFunc) (void);
 
 #define selectorInits {initBreedTop}
 
-#define fitnessFuncInits {initStringCmp, initAdditionFitness}
+#define fitnessFuncInits {initStringCmp, initAdditionFitness, initTreeFuncFitness}
 
 
 /* It's beyond annoying that C doesn't have these: */

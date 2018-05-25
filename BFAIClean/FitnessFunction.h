@@ -15,6 +15,7 @@
 typedef void (*CalcFitnessFunc)(Genome *g);
 
 #define MAX_TARGET_STRING 1000
+#define MAX_NUM_TEST_VALUES 1000
 
 typedef struct _FitnessFunction{
     char *name;
@@ -31,6 +32,19 @@ typedef struct _FitnessFunction{
     bool buildUpString;
     int lengthReward;
     
+    
+    /* Addition */
+    int start;
+    int stop;
+    int step;
+    
+    /* TreeFunctionFitness */
+    double testValues[MAX_NUM_TEST_VALUES];
+    int numTestValues;
+    int precision;
+    
+    char testValType; //'r'==range, 'l'==list
+    double testValStart, testValStep;
 } FitnessFunction;
 
 #endif /* FitnessFunction_h */

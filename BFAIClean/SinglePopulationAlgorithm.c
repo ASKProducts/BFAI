@@ -66,7 +66,7 @@ void runSinglePopulation(FILE *file){
     
     
     int best = -1;
-    for (int gen = 0; gen < 1000000; gen++) {
+    for (int gen = 0; gen < MAX_GENERATION_COUNT; gen++) {
         //printf("Starting gen %d\n", gen);
         for (int i = 0; i < popSize; i++) {
             fitness.calculate(&p.genomes[i]);

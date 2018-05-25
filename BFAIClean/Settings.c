@@ -7,6 +7,7 @@
 //
 
 #include "Settings.h"
+#include "DoubleBFInterpreter.h"
 #include "Interpreter.h"
 #include "StupidInterpreter.h"
 #include "FastBFInterpreter.h"
@@ -18,11 +19,14 @@
 #include "OysterInterpreter.h"
 #include "RandomReplaceMutator.h"
 #include "BreedingSelector.h"
+#include "TreeFunctionFitness.h"
 #include "StringCmpFitness.h"
 #include "ReplaceInsertMutator.h"
 #include "BreedTop.h"
 #include "FitnessFunction.h"
+#include "BasicTreeInterpreter.h"
 #include "AdditionFitness.h"
+#include "ManyPopulationsAlgorithm.h"
 #include "SegmentedMutator.h"
 #include "SegmentBreeder.h"
 #include <string.h>

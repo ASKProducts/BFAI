@@ -61,6 +61,10 @@ typedef struct _Interpreter{
     int lineLength;
     bool continueLines;
     
+    /* BasicTree */
+    char operators[100];
+    char constants[100];
+    
 }Interpreter;
 
 
