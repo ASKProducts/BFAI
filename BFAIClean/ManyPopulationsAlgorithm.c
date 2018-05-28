@@ -156,6 +156,8 @@ superbreak:
 void printManyPopulationStatus(Population *p, int num){
     printf("Population %d, ID %d, Generation %d, Best Fitness: %d/%d\n", num, p->ID, p->generation, p->bestFitness, fitness.perfectFitness);
     printf("Code:\n");
+    interpreter.print(&p->sorted[0]->program);
+    /*
     if(strcmp(interpreter.name, "Oyster") == 0){
         for (int i = 0; i < interpreter.numLines; i++) {
             printf("%c: ", 'A' + i);
@@ -167,9 +169,9 @@ void printManyPopulationStatus(Population *p, int num){
     }
     else{
         printf("%s\n", p->sorted[0]->dna);
-    }
+    }*/
     
-    printf("Output: %s\n", p->sorted[0]->program.generic.output);
+    printf("\nOutput: %s\n", p->sorted[0]->program.generic.output);
     //Code: %s\nOutput: %s\n", p->generation, p->sorted[0]->fitness, fitness.perfectFitness, p->sorted[0]->dna, p->sorted[0]->program.generic.output);
     printf("{");
     for (int i = 0; i < 15; i++) {

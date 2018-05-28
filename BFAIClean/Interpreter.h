@@ -29,6 +29,7 @@ typedef void (*ProcessFunc) (char *code, Program *program);
 //A run func takes in a program and a pointer to an array of input and runs it on that input, filling in that program's output as we go. (Return the number of instructions)
 typedef int (*RunFunc) (Program *program, char *input, int inputLen);
 
+typedef void (*PrintFunc) (Program *program);
 
 typedef struct _Interpreter{
     char *name; //Names must be only one token
@@ -36,6 +37,7 @@ typedef struct _Interpreter{
     RunFunc run;
     ScanFunc scan;
     SaveFunc save;
+    PrintFunc print;
     
     char *validChars; //Interpreters can choose to scan this in or put it in init func
     int numValidChars;

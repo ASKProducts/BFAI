@@ -16,9 +16,10 @@ extern FitnessFunction fitness;
 extern int numFitnessFuncs;
 
 extern Interpreter interpreter;
-
+int fact[15];
+double harmonic[15];
 double targetFunction(double x){
-    return atan(x);
+    return 1/(1-x);
 }
 
 void initTreeFuncFitness(void){
@@ -29,6 +30,14 @@ void initTreeFuncFitness(void){
         .save = saveTreeFuncFitness,
     };
     
+    harmonic[0] = 0;
+    fact[0] = 1;
+    for (int i = 1; i < 15; i++) {
+        fact[i] = i*fact[i-1];
+    }
+    for (int i = 1; i < 15; i++) {
+        harmonic[i] = harmonic[i-1] + 1.0/i;
+    }
 }
 
 //#define min(a,b) a<b?a:b
@@ -66,16 +75,21 @@ void calculateTreeFuncFitness(Genome *g){
         if (res < 0) score = 0;
         else if (res <= target) score = (target == 0)? precision : res*precision/target;
         else if (res <= 2*target) score = (2*target - res)*precision/target;
-        else score = 0;
+        else if (target == 0) score = (res <= 1.0/precision) ? precision : 0;
         
-        g->fitness += round(score);
+        g->fitness += round(score) - fitness.lengthPunishment*val;
     }
+    
+    if(g->fitness < 0) g->fitness = 0;
     
 }
 void scanTreeFuncFitness(FILE *file){
     //test values take one of two formats.
     //format 1:  range [start] [step] [count]
     //format 2: list [list of values]
+    
+    fscanf(file, "Length Punishment: %lf\n", &fitness.lengthPunishment);
+    
     fscanf(file, "Precision: %d\n", &fitness.precision);
     
     char testValType[100];
@@ -115,6 +129,7 @@ void scanTreeFuncFitness(FILE *file){
     
 }
 void saveTreeFuncFitness(FILE *file){
+    fprintf(file, "Length Punishment: %.1lf\n", fitness.lengthPunishment);
     fprintf(file, "Precision: %d\n", fitness.precision);
     if(fitness.testValType == 'r')
         fprintf(file, "Test Values: range %.2lf %.2lf %d\n", fitness.testValStart, fitness.testValStep, fitness.numTestValues);

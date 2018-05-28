@@ -48,6 +48,7 @@ void initFastBFInterpreter(void){
     interpreters[numInterpreters].save = saveFastBFInterpreter;
     interpreters[numInterpreters].validChars = "+-><[].,";
     interpreters[numInterpreters].AIChars = "+-><[].,";
+    interpreters[numInterpreters].print = (PrintFunc)printFastBF;
     numInterpreters++;
 
     for (int i = 0; i < FBF_MEM_MAX; i++) {
@@ -57,6 +58,11 @@ void initFastBFInterpreter(void){
     
     assert(sizeof(GenericProgram) + GENERIC_PROGRAM_PADDING >= sizeof(FBFProgram));
 }
+
+void printFastBF(FBFProgram *program){
+    printf("%s", program->generic.code);
+}
+
 void scanFastBFInterpreter(FILE *file){
     fscanf(file, "Tape Length: %d\n", &interpreter.tapeLength);
     char a;

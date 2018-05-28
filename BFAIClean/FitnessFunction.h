@@ -45,6 +45,8 @@ typedef struct _FitnessFunction{
     
     char testValType; //'r'==range, 'l'==list
     double testValStart, testValStep;
+    double lengthPunishment;
+    
 } FitnessFunction;
 
 #endif /* FitnessFunction_h */

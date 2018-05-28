@@ -16,6 +16,6 @@ Breeding Selector: BreedTop
 Elite Percentage: 20
 Copy Elite: y
 Fitness Function: StringCompare
-Target String: hello
+Target String: Hello World!
 Build Up String: y
 Length Reward: 100

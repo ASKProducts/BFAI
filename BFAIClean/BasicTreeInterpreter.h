@@ -41,6 +41,7 @@ void scanBasicTreeInterpreter(FILE *file);
 void saveBasicTreeInterpreter(FILE *file);
 void processBasicTreeInterpreter(char *code, BTProgram *program);
 int runBasicTreeInterpreter(BTProgram *program, char *input, int inputLen);
+void printTreeExpression(BTProgram *program);
 
 
 #endif /* BasicTreeInterpreter_h */

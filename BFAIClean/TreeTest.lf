@@ -1,8 +1,8 @@
 Interpreter: BasicTree
-Operators: +-*/
+Operators: _+-*
 Constants: 0123456789x
 Algorithm: ManyPopulations
-Genome Length: 200
+Genome Length: 100
 Number of Populations: 10
 Population Size: 100
 Checkin Interval: 1000
@@ -14,5 +14,6 @@ Breeding Selector: BreedTop
 Elite Percentage: 20
 Copy Elite: y
 Fitness Function: TreeFunction
+Length Punishment: 10.0
 Precision: 100000000
-Test Values: range -10 1 20
+Test Values: range -0.9 0.1 18

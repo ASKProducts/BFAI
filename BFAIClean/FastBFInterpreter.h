@@ -37,7 +37,7 @@ void scanFastBFInterpreter(FILE *file);
 void saveFastBFInterpreter(FILE *file);
 void processFastBFInterpreter(char *code, FBFProgram *program);
 int runFastBFInterpreter(FBFProgram *program, char *input, int inputLen);
-
+void printFastBF(FBFProgram *program);
 
 
 #endif /* FastBFInterpreter_h */
