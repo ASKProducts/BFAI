@@ -14,6 +14,7 @@ extern Breeder breeder;
 extern int numBreeders;
 
 extern GeneticAlgorithm algorithm;
+extern int arity[256];
 
 char* getTree(char* root, const char* const arity);
 
@@ -38,39 +39,23 @@ void treeBreed(Genome *p1, Genome *p2, Genome *child){
     int i2 = rand() % genLen;
     char* start1 = &child->dna[i1];
     char* start2 = &p2->dna[i2];
-    char* end1 = getTree(start1, arity);
-    char* end2 = getTree(start2, arity); 
+    char* end1 = getTree(start1, arity)+1;
+    char* end2 = getTree(start2, arity)+1; 
    
     int len1 = end1 - start1;
     int len2 = end2 - start2;
-    if (len1 < len2) {      // No 3rd var swapping
-        len1 = len1 + len2; // (len1 + len2, len2)
-        len2 = len1 - len2; // (len1 + len2, len1)
-        len1 = len1 - len2; // (len2, len1)
-    }
-    char temp[genLen]; 
-    if (len1 == len2) {
-        memmove(temp, start1, len1);
-        memmove(start1, start2, len2);
-        memmove(start2, temp, len1);
-        return;
-    } else if (len1 > len2) {
-        int diff = len1 - len2;
-        int rem1 = genLen - i1 - len1; //remaining lengths in the buffer
-        int rem2 = genLen - i2 - len2; 
-        
-        memmove(temp, start1, len1);
-        memmove(end1-diff, end1, rem1);
-        memmove(start1, start2, len2);
-        memmove(end2+diff, end2, rem2-diff);
-        memmove(start2, temp, len1); 
-    } else {
-        printf("WARNING: Length error when calling treeBreed() in TreeBreeder.c");
-    } 
+
+    // copy a segment of length (len2) from start2 into start1
+    // accomodate for differences in segment lengths
+    int diff = len1 - len2;
+    int rem1 = genLen - i1 - len1; //remaining length in the buffer
+    if (diff >= 0) memmove(end1-diff, end1, rem1);
+    else memmove(end1-diff, end1, rem1-diff);
+    memmove(start1, start2, len2);
 }
 
 
-// Given a pointer to a character in an expression program's DNA, returns a pointer to the end of the tree
+// Given a pointer to a character in an expression program's DNA, returns a pointer to the last char in the tree
 // Works because trees are contiguous in memory
 char* getTree(char* root, const char* const arity) {
     char c = *root;
@@ -89,10 +74,10 @@ char* getTree(char* root, const char* const arity) {
 
 /* TODO: implement the scan and save functions */
 
-void scanSegmentBreeder(FILE *file){
+void scanTreeBreeder(FILE *file){
     //fscanf(file, "Segment Size: %d\n", &breeder.segmentSize);
 }
 
-void saveSegmentBreeder(FILE *file){
+void saveTreeBreeder(FILE *file){
     //fprintf(file, "Segment Size: %d\n", breeder.segmentSize);
 }
