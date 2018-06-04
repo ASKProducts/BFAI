@@ -28,6 +28,8 @@ extern BreedingSelector selector;
 extern Mutator mutator;
 extern Interpreter interpreter;
 
+extern bool isRunningPng;
+
 void initManyPopulations(void){
     algorithms[numAlgorithms].name = "ManyPopulations";
     algorithms[numAlgorithms].run = runManyPopulations;
@@ -45,6 +47,7 @@ void scanManyPopulations(FILE *file){
     assert(algorithm.populationSize <= MAX_POPULATION_SIZE);
     
     fscanf(file, "Checkin Interval: %d\n", &algorithm.checkinInterval);
+    fscanf(file, "Accuracy Cutoff: %lf\n", &algorithm.accuracyCutoff);
 }
 void saveManyPopulations(FILE *file){
     fprintf(file, "Genome Length: %d\n", algorithm.genomeLength);
@@ -52,6 +55,7 @@ void saveManyPopulations(FILE *file){
     fprintf(file, "Population Size: %d\n", algorithm.populationSize);
     
     fprintf(file, "Checkin Interval: %d\n", algorithm.checkinInterval);
+    fprintf(file, "Accuracy Cutoff: %lf\n", algorithm.accuracyCutoff);
 }
 
 void printManyPopulationStatus(Population *p, int num);
@@ -82,6 +86,8 @@ void runManyPopulations(FILE *file){
         
         for (int i = 0; i < numPops; i++) {
             for (int j = 0; j < popSize; j++) {
+                if(strcmp(interpreter.name, "FastBF") == 0)
+                    processGenome(&pops[i].genomes[j]);
                 fitness.calculate(&pops[i].genomes[j]);
             }
             sortPopulation(&pops[i]);
@@ -98,7 +104,12 @@ void runManyPopulations(FILE *file){
                 updateTimer(&timer);
                 printf("Time elapsed: %.2f\n", timer.totalTime);
                 
-                if (best == fitness.perfectFitness) goto superbreak;
+                if(isRunningPng){
+                    printf("\nBest:\n");
+                    interpreter.print(&pops[i].sorted[0]->program);
+                }
+                
+                if ((double)best/fitness.perfectFitness >= algorithm.accuracyCutoff) goto superbreak;
                 
             }
         }
@@ -113,6 +124,11 @@ void runManyPopulations(FILE *file){
             printf("End Generation %d Check in\n\n", gen);
             updateTimer(&timer);
             printf("Time elapsed: %.2f\n", timer.totalTime);
+            
+            if(isRunningPng){
+                printf("\nBest:\n");
+                interpreter.print(&pops[0].sorted[0]->program);
+            }
         }
         
         for (int i = 0; i < numPops; i++) {
@@ -127,7 +143,8 @@ void runManyPopulations(FILE *file){
                 else{
                     nextGenomeData[j] = *par.p1;
                 }
-                processGenome(&nextGenomeData[j]); //NOTE: NOT GOOD, CODE POINTS TO WRONG THING
+                if(strcmp(interpreter.name, "FastBF") != 0)
+                    processGenome(&nextGenomeData[j]); //NOTE: NOT GOOD, CODE POINTS TO WRONG THING
             }
             
             memmove(pops[i].genomes, nextGenomeData, sizeof(Genome)*popSize);
@@ -143,20 +160,35 @@ superbreak:
     for (int i = numPops-1; i >= 0; i--) {
         printManyPopulationStatus(&pops[i], i);
     }
+    
+    updateTimer(&timer);
+    printf("Time elapsed: %.2f\n\n", timer.totalTime);
+    
+    if(isRunningPng){
+        printf("Final Best:\n");
+        if(strcmp(interpreter.name, "BasicTree") == 0) interpreter.print(&pops[0].sorted[0]->program);
+    }
     for (int i = numPops-1; i >= 0; i--) {
         free(genomeData[i]);
     }
     free(nextGenomeData);
     
-    updateTimer(&timer);
-    printf("Time elapsed: %.2f\n", timer.totalTime);
 }
 
 
 void printManyPopulationStatus(Population *p, int num){
+    
+    
     printf("Population %d, ID %d, Generation %d, Best Fitness: %d/%d\n", num, p->ID, p->generation, p->bestFitness, fitness.perfectFitness);
-    printf("Code:\n");
     interpreter.print(&p->sorted[0]->program);
+    printf("\nOutput: %s\n", p->sorted[0]->program.generic.output);
+    //Code: %s\nOutput: %s\n", p->generation, p->sorted[0]->fitness, fitness.perfectFitness, p->sorted[0]->dna, p->sorted[0]->program.generic.output);
+    printf("{");
+    for (int i = 0; i < 15; i++) {
+        printf("%d, ", (unsigned char)p->sorted[0]->program.generic.output[i]);
+    }
+    printf("}\n");
+    printf("Code:\n");
     /*
     if(strcmp(interpreter.name, "Oyster") == 0){
         for (int i = 0; i < interpreter.numLines; i++) {
@@ -171,13 +203,6 @@ void printManyPopulationStatus(Population *p, int num){
         printf("%s\n", p->sorted[0]->dna);
     }*/
     
-    printf("\nOutput: %s\n", p->sorted[0]->program.generic.output);
-    //Code: %s\nOutput: %s\n", p->generation, p->sorted[0]->fitness, fitness.perfectFitness, p->sorted[0]->dna, p->sorted[0]->program.generic.output);
-    printf("{");
-    for (int i = 0; i < 15; i++) {
-        printf("%d, ", (unsigned char)p->sorted[0]->program.generic.output[i]);
-    }
-    printf("}\n");
 }
 
 

@@ -47,6 +47,8 @@ typedef struct _FitnessFunction{
     double testValStart, testValStep;
     double lengthPunishment;
     
+    char dataOrFunction; //'d'==data, 'f'==function
+    double testData[MAX_NUM_TEST_VALUES];
 } FitnessFunction;
 
 #endif /* FitnessFunction_h */

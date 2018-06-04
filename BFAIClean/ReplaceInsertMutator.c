@@ -34,6 +34,8 @@ void replaceInsertMutate(Genome *g){
     char *AIChars = interpreter.AIChars;
     int numAIChars = interpreter.numAIChars;
     
+    if(mutationRate == 0) return;
+    
     for (int i = 0; i < len; i++) {
         int r = rand() % mutationRate;
         if (r == 0){

@@ -25,15 +25,18 @@ typedef struct _BTOp{
     
     int parent;
     int children[2];
+    
 } BTOp;
 
 typedef struct _BTProgram{
     GenericProgram generic;
     BTOp ops[MAX_BT_OPS];
+    bool dependsOnX[MAX_BT_OPS];
     int len;
     
     int index; //for processing/running
     bool isDead;
+    bool isConstant;
 } BTProgram;
 
 void initBasicTreeInterpreter(void);

@@ -10,6 +10,7 @@
 #define Settings_h
 
 #include <stdio.h>
+#include <stdbool.h>
 
 void initializeSettings(FILE *file);
 void saveSettings(void);
@@ -44,7 +45,7 @@ typedef void (*InitFunc) (void);
 
 #define algorithmInits {initSinglePopulation, initManyPopulations}
 
-#define breederInits {initRandomCrossover, initSegmentBreeder}
+#define breederInits {initRandomCrossover, initSegmentBreeder, initTreeBreeder}
 
 #define mutatorInits {initRandomReplace, initReplaceInsert, initSegmentMutator}
 

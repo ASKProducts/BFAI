@@ -29,6 +29,7 @@
 #include "ManyPopulationsAlgorithm.h"
 #include "SegmentedMutator.h"
 #include "SegmentBreeder.h"
+#include "TreeBreeder.h"
 #include <string.h>
 
 InitFunc initInterpreterFuncs[] = interpreterInits;

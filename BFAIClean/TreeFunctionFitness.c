@@ -18,8 +18,10 @@ extern int numFitnessFuncs;
 extern Interpreter interpreter;
 int fact[15];
 double harmonic[15];
+
+
 double targetFunction(double x){
-    return 1/(1-x);
+    return sin(x);
 }
 
 void initTreeFuncFitness(void){
@@ -66,7 +68,7 @@ void calculateTreeFuncFitness(Genome *g){
             return;
         }
         double res = *(double*)g->program.generic.output;
-        double target = targetFunction(x);
+        double target = fitness.testData[i];
         //int dist = max(res-target, target-res);
         //int m = min(dist, 2*target);
         double score = 0;
@@ -92,37 +94,64 @@ void scanTreeFuncFitness(FILE *file){
     
     fscanf(file, "Precision: %d\n", &fitness.precision);
     
-    char testValType[100];
-    fscanf(file, "Test Values: %s", testValType);
-    
-    if (strcmp(testValType, "range") == 0) {
-        fitness.testValType = 'r';
-        double start, step; int count;
-        fscanf(file, " %lf %lf %d\n", &start, &step, &count);
-        fitness.testValStart = start;
-        fitness.testValStep = step;
-        for (int i = 0; i < count; i++) {
-            fitness.testValues[i] = start + i*step;
+    char testType[100];
+    fscanf(file, "Test Type: %s\n", testType);
+    if(strcmp(testType, "data") == 0){
+        fitness.dataOrFunction = 'd';
+        
+        char dataFileName[100];
+        
+        int numDataPoints = 0;
+        fscanf(file, "Data: %s\n", dataFileName);
+        
+        FILE *dataFile = fopen(dataFileName, "r");
+        
+        fscanf(dataFile, "%d\n", &numDataPoints);
+        
+        fitness.numTestValues = numDataPoints;
+        
+        for (int i = 0; i < numDataPoints; i++) {
+            fscanf(dataFile, "%lf %lf\n", &fitness.testValues[i], &fitness.testData[i]);
         }
-        fitness.numTestValues = count;
+    
     }
     else{
-        fitness.testValType = 'l';
-        fitness.numTestValues = 0;
-        char restOfLine[1000];
-        char *str = restOfLine;
-        fgets(restOfLine, 1000, file);
-        restOfLine[strlen(restOfLine)-1] = 0;
-        char *end = str;
-        while(*end) {
-            double n = strtod(str, &end);
-            fitness.testValues[fitness.numTestValues++] = n;
-            while (*end == ' ') {
-                end++;
-            }
-            str = end;
-        }
+        fitness.dataOrFunction = 'f';
         
+        char testValType[100];
+        fscanf(file, "Test Values: %s", testValType);
+        
+        if (strcmp(testValType, "range") == 0) {
+            fitness.testValType = 'r';
+            double start, step; int count;
+            fscanf(file, " %lf %lf %d\n", &start, &step, &count);
+            fitness.testValStart = start;
+            fitness.testValStep = step;
+            for (int i = 0; i < count; i++) {
+                fitness.testValues[i] = start + i*step;
+                fitness.testData[i] = targetFunction(fitness.testValues[i]);
+            }
+            fitness.numTestValues = count;
+        }
+        else{
+            fitness.testValType = 'l';
+            fitness.numTestValues = 0;
+            char restOfLine[1000];
+            char *str = restOfLine;
+            fgets(restOfLine, 1000, file);
+            restOfLine[strlen(restOfLine)-1] = 0;
+            char *end = str;
+            while(*end) {
+                double n = strtod(str, &end);
+                fitness.testValues[fitness.numTestValues] = n;
+                fitness.testData[fitness.numTestValues++] = targetFunction(n);
+                while (*end == ' ') {
+                    end++;
+                }
+                str = end;
+            }
+            
+        }
     }
     
     fitness.perfectFitness = fitness.numTestValues*fitness.precision;

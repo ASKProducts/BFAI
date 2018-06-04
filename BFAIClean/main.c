@@ -37,10 +37,15 @@ extern FitnessFunction fitness;
  . overarching strategy
  */
 
-char *loadfileName ="./TreeTest.lf";
+const char *loadfileName;
+bool isRunningPng = false;
 
 int main(int argc, const char * argv[]) {
     srand((int)time(NULL));
+    
+    if(argc == 3 && strcmp(argv[2], "-p") == 0)isRunningPng = true;
+    
+    loadfileName = argv[1];
     
     FILE *file = fopen(loadfileName, "r");
     initializeSettings(file);
@@ -99,7 +104,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-    saveSettings();
+    //saveSettings();
 
     fclose(file);
     return 0;

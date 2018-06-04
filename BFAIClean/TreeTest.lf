@@ -1,19 +1,27 @@
 Interpreter: BasicTree
-Operators: _+-*
-Constants: 0123456789x
+Operators: _+-*/C^
+Constants: 0123456789px
 Algorithm: ManyPopulations
 Genome Length: 100
 Number of Populations: 10
 Population Size: 100
 Checkin Interval: 1000
+Accuracy Cutoff: 1.000000
 Breeder: SegmentBreeder
-Segment Size: 1
+Segment Size: 100
 Mutator: ReplaceInsert
 Mutation Rate: 10
 Breeding Selector: BreedTop
 Elite Percentage: 20
 Copy Elite: y
 Fitness Function: TreeFunction
-Length Punishment: 10.0
+Length Punishment: 0.0
 Precision: 100000000
-Test Values: range -0.9 0.1 18
+Test Type: function
+Test Values: range -3.14 0.628 10
+
+
+Test Type: data
+Data: /Users/AKaufer/Documents/BFAIClean/BFAIClean/TreeTestData
+Function: 123456789
+Input Range: range(10)

@@ -19,6 +19,7 @@ extern int numInterpreters;
 
 int arity[256];
 
+extern bool isRunningPng;
 
 void initBasicTreeInterpreter(void){
     interpreters[numInterpreters++] = (Interpreter){
@@ -45,6 +46,7 @@ void initBasicTreeInterpreter(void){
     arity['*'] = 2; // *
     arity['/'] = 2; // /
     arity['^'] = 2; // ^ (exponentation)
+    arity['\\'] = 2; //division, but only constants are allowed in the denominator
     
     arity['E'] = 1; // exp(X)
     arity['L'] = 1; // log(X)
@@ -61,7 +63,8 @@ void parse(char *str, int *i){
     if (arity[c] == 2) {
         printf("(");
         parse(str, i);
-        printf("%c", c);
+        if(c == '\\')printf("/");
+        else printf("%c", c);
         parse(str, i);
         printf(")");
     }
@@ -85,10 +88,56 @@ void parse(char *str, int *i){
     }
 }
 
+void latexParse(char *str, int *i){
+    char c = (*i < strlen(str)) ? str[*i] : '0';
+    (*i)++;
+    fprintf(stdout,"{");
+    if (arity[c] == 2) {
+        if(c == '/' || c == '\\'){
+            fprintf(stdout, "\\frac{");
+            latexParse(str, i);
+            fprintf(stdout,"}{");
+            latexParse(str, i);
+            fprintf(stdout, "}");
+        }
+        else{
+            fprintf(stdout, "\\left(");
+            latexParse(str, i);
+            if(c == '*')fprintf(stdout, "\\cdot");
+            else fprintf(stdout, "%c", c);
+            latexParse(str, i);
+            fprintf(stdout, "\\right)");
+        }
+    }
+    else if (arity[c] == 1){
+        if (c == 'E') fprintf(stdout, "e^");
+        else if (c == 'L') fprintf(stdout, "\\log");
+        else if (c == 'S') fprintf(stdout, "\\sin");
+        else if (c == 'C') fprintf(stdout, "\\cos");
+        else if (c == 'T') fprintf(stdout, "\\tan");
+        else if (c == 'I') fprintf(stdout, "\\left(\\frac{1}{");
+        else if (c == '_') ;
+        else printf("%c", c);
+        if( c != 'E' && c != 'I') fprintf(stdout, "{\\left(");
+        latexParse(str, i);
+        if( c != 'E' && c != 'I') fprintf(stdout, "\\right)}");
+        if(c == 'I') fprintf(stdout, "}\\right)");
+    }
+    else if (arity[c] == 0){
+        if(c == 'p') fprintf(stdout, "\\pi");
+        else fprintf(stdout, "%c", c);
+    }
+    fprintf(stdout, "}");
+}
+
 void printTreeExpression(BTProgram *program){
     int i = 0;
     printf("\n%s\n\n", program->generic.code);
     parse(program->generic.code, &i);
+    printf("\n\nLatex: \n");
+    i = 0;
+    fprintf(stdout, "\n");
+    latexParse(program->generic.code, &i);
     printf("\n");
 }
 
@@ -125,11 +174,45 @@ void process(BTProgram *program){
     
 }
 
+bool markDependence(BTProgram *program, int *i){
+    
+    if(*i >= program->len)return false;
+    
+    char c = program->generic.code[*i];
+    if(arity[c] == 0){
+        program->dependsOnX[*i] = (c == 'x');
+        (*i)++;
+        return true;
+    }
+    else if (arity[c] == 1){
+        int j = *i;
+        (*i)++;
+        bool isDependent = markDependence(program, i);
+        program->dependsOnX[j] = isDependent;
+        return isDependent;
+    }
+    else if (arity[c] == 2){
+        int j = *i;
+        (*i)++;
+        //lmao this isnt as stupid as it looks -- each call has a different value of *i
+        bool isDependent1 = markDependence(program, i);
+        bool isDependent2 = markDependence(program, i);
+        program->dependsOnX[j] = isDependent1 || isDependent2;
+        return isDependent1 || isDependent2;
+    }
+    
+    return true;
+}
+
 void processBasicTreeInterpreter(char *code, BTProgram *program){
     program->generic.code = code;
     
     size_t len = strlen(code);
     program->len = (int)len;
+    
+    int i = 0;
+    markDependence(program, &i);
+    
     return;
 //    int index = 0;
 //    while (index < len) {
@@ -139,7 +222,8 @@ void processBasicTreeInterpreter(char *code, BTProgram *program){
 }
 
 double evaluate(BTProgram *program, double x, int *insCount){
-    if(program->isDead || program->index >= program->len) return 0;
+    if(program->index >= program->len) program->isDead = true;
+    if(program->isDead) return 0;
     
     char c = program->generic.code[program->index++];
     (*insCount)++;
@@ -147,7 +231,7 @@ double evaluate(BTProgram *program, double x, int *insCount){
         if(c >= '0' && c <= '9') return c - '0';
         if(c == 'p') return M_PI;
         if(c == 'e') return M_E;
-        if(c == 'x') return x;
+        if(c == 'x')return x;
         if (c == 'k') {
             program->isDead = true;
             return 0;
@@ -182,7 +266,14 @@ double evaluate(BTProgram *program, double x, int *insCount){
     }
     else if (arity[c] == 2){
         double val1 = evaluate(program, x, insCount);
+        
+//        bool prevConstantValue = program->isConstant;
+//        program->isConstant = true;
+        int ind = program->index;
         double val2 = evaluate(program, x, insCount);
+//        bool constVal2 = program->isConstant;
+//        program->isConstant = prevConstantValue;
+        
         if (c == '+')
             return val1+val2;
         else if (c == '-')
@@ -196,8 +287,15 @@ double evaluate(BTProgram *program, double x, int *insCount){
             }
             else return val1/val2;
         }
+        else if (c == '\\'){
+            if(program->dependsOnX[ind] || val2 == 0){
+                program->isDead = true;
+                return 0;
+            }
+            else return val1/val2;
+        }
         else if (c == '^'){
-            if (val1 < 0) {
+            if (val1 < 0 && floor(val2) != val2) {
                 program->isDead = true;
                 return 0;
             }
@@ -215,6 +313,7 @@ int runBasicTreeInterpreter(BTProgram *program, char *input, int inputLen){
     double x = *(double*)input;
     program->index = 0;
     program->isDead = false;
+    program->isConstant = true;
     
     int insCount= 0;
     double res = evaluate(program, x, &insCount);

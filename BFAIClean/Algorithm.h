@@ -28,6 +28,7 @@ typedef struct _GeneticAlgorithm{
     //Many populations
     int numPopulations;
     int checkinInterval;
+    double accuracyCutoff;
     
 } GeneticAlgorithm;
 
